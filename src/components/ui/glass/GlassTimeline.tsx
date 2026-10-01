@@ -47,30 +47,30 @@ export interface AchievementItem {
 
 export function GlassTimeline({ items }: { items: AchievementItem[] }) {
   return (
-    <div className="relative pl-6 sm:pl-8 border-l border-primary/25 dark:border-primary/20 space-y-10 my-8">
+    <div className="relative pl-8 sm:pl-10 border-l-2 border-primary/20 dark:border-primary/15 space-y-8 my-6">
       {items.map((item, i) => (
-        <div key={i} className="relative group">
-          {/* Glass Node Dot on the Rail */}
-          <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 size-4 rounded-full bg-background border-2 border-primary shadow-xs group-hover:scale-125 group-hover:bg-primary transition-all duration-300" />
+        <div key={i} className="relative group min-w-0">
+          {/* Glass Node Dot on the Rail — positioned using CSS, not px offsets */}
+          <div className="absolute -left-[calc(2rem+4px)] sm:-left-[calc(2.5rem+4px)] top-2 size-3.5 rounded-full bg-primary/90 shadow-sm group-hover:scale-125 group-hover:shadow-primary/40 group-hover:shadow-md transition-all duration-300 border-2 border-background" />
 
           {/* Achievement Glass Card */}
-          <div className="liquid-glass p-6 sm:p-7 rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/40">
+          <div className="liquid-glass p-5 sm:p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 min-w-0">
             <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-              <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+              <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-primary/10 text-primary dark:text-sage border border-primary/20">
                 {item.year}
               </span>
-              <span className="text-xs uppercase tracking-wider font-semibold text-muted-foreground">
+              <span className="text-xs uppercase tracking-wider font-semibold text-muted-foreground truncate max-w-[60%]">
                 {item.organization}
               </span>
             </div>
-            <h3 className="text-lg sm:text-xl font-bold text-foreground tracking-tight mb-2">
+            <h3 className="text-base sm:text-lg font-bold text-foreground tracking-tight mb-1.5">
               {item.title}
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               {item.description}
             </p>
             {item.verificationUrl && (
-              <div className="mt-4 pt-3 border-t border-border/40">
+              <div className="mt-3 pt-2 border-t border-border/40">
                 <a
                   href={item.verificationUrl}
                   target="_blank"

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ShieldCheck,
@@ -94,43 +95,43 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col gap-12 sm:gap-20 pb-16 overflow-hidden">
+    <div className="flex flex-col gap-0 pb-16 overflow-hidden">
       {/* 1. Hero Section (Section 11, 12, 17, 53, 56) */}
       <HeroSection />
 
       {/* 2. Trust Numbers Bar (Section 80) */}
-      <section className="relative z-20 -mt-8 sm:-mt-14 px-4 sm:px-6">
-        <div className="max-w-5xl mx-auto liquid-glass-strong rounded-3xl p-6 sm:p-8 shadow-xl border border-white/60 dark:border-white/15">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x-0 md:divide-x divide-border-glass">
-            <div className="flex flex-col gap-1 px-3">
-              <span className="text-3xl sm:text-4xl font-black text-primary dark:text-sage font-heading">
+      <section className="relative z-20 px-4 sm:px-6 -mt-6 sm:-mt-10 mb-4">
+        <div className="max-w-5xl mx-auto liquid-glass-strong rounded-3xl p-5 sm:p-8 shadow-xl border border-white/60 dark:border-white/15">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
+            <div className="flex flex-col gap-1 px-2 sm:px-3">
+              <span className="text-2xl sm:text-3xl md:text-4xl font-black text-primary dark:text-sage font-heading">
                 7+
               </span>
-              <span className="text-xs uppercase tracking-wider font-bold text-muted-foreground">
+              <span className="text-[10px] sm:text-xs uppercase tracking-wider font-bold text-muted-foreground leading-snug">
                 Years Coaching
               </span>
             </div>
-            <div className="flex flex-col gap-1 px-3">
-              <span className="text-3xl sm:text-4xl font-black text-foreground font-heading">
+            <div className="flex flex-col gap-1 px-2 sm:px-3">
+              <span className="text-2xl sm:text-3xl md:text-4xl font-black text-foreground font-heading">
                 500+
               </span>
-              <span className="text-xs uppercase tracking-wider font-bold text-muted-foreground">
+              <span className="text-[10px] sm:text-xs uppercase tracking-wider font-bold text-muted-foreground leading-snug">
                 Clients Coached
               </span>
             </div>
-            <div className="flex flex-col gap-1 px-3">
-              <span className="text-3xl sm:text-4xl font-black text-primary dark:text-sage font-heading">
+            <div className="flex flex-col gap-1 px-2 sm:px-3">
+              <span className="text-2xl sm:text-3xl md:text-4xl font-black text-primary dark:text-sage font-heading">
                 565kg
               </span>
-              <span className="text-xs uppercase tracking-wider font-bold text-muted-foreground">
+              <span className="text-[10px] sm:text-xs uppercase tracking-wider font-bold text-muted-foreground leading-snug">
                 Sanctioned Total
               </span>
             </div>
-            <div className="flex flex-col gap-1 px-3">
-              <span className="text-3xl sm:text-4xl font-black text-foreground font-heading">
+            <div className="flex flex-col gap-1 px-2 sm:px-3">
+              <span className="text-2xl sm:text-3xl md:text-4xl font-black text-foreground font-heading">
                 100%
               </span>
-              <span className="text-xs uppercase tracking-wider font-bold text-muted-foreground">
+              <span className="text-[10px] sm:text-xs uppercase tracking-wider font-bold text-muted-foreground leading-snug">
                 Drug-Free Athletics
               </span>
             </div>
@@ -215,7 +216,6 @@ export default function Home() {
         eyebrow="Progression Architecture"
         title="How We Build Lasting Results"
         description="Every client follows a structured, evidence-backed narrative progression from initial diagnostic to long-term autonomy."
-        className="py-12"
       >
         <ScrollReveal>
           <PhilosophySequence steps={philosophySteps} />
@@ -227,7 +227,6 @@ export default function Home() {
         eyebrow="Specialized Coaching"
         title="Focused Training Domains"
         description="No bloated service catalogs. Four core disciplines executed with surgical biomechanical rigor."
-        className="py-12"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((srv, idx) => (
@@ -257,22 +256,26 @@ export default function Home() {
       </GlassSection>
 
       {/* 6. Photography Interlude: Strength in Action (Section 10 & 100 & 117) */}
-      <section className="py-12 relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="py-8 sm:py-12 relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <ScrollReveal>
-          <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/40 dark:border-white/10 aspect-[16/9] sm:aspect-[21/9]">
-            <GlassImageFrame
+          <div className="relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/40 dark:border-white/10 aspect-[4/3] sm:aspect-[16/7]">
+            {/* Full-bleed image fills the aspect-ratio container */}
+            <Image
               src={profile.images.strength}
               alt="Siddharth performing heavy deadlift with disciplined form"
-              aspectRatio="editorial"
-              className="size-full"
+              fill
+              sizes="(max-width: 768px) 100vw, 1320px"
+              className="object-cover object-center"
             />
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
             {/* Floating Glass Brand Statement (Section 117) */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-20 flex items-end p-6 sm:p-12">
-              <div className="liquid-glass-strong rounded-3xl p-6 sm:p-8 max-w-2xl border border-white/60 dark:border-white/15 backdrop-blur-xl">
-                <span className="text-xs uppercase font-mono font-bold tracking-widest text-primary dark:text-sage block mb-1">
+            <div className="absolute inset-0 z-20 flex items-end p-4 sm:p-8 lg:p-12">
+              <div className="liquid-glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-8 max-w-2xl border border-white/60 dark:border-white/15 backdrop-blur-xl">
+                <span className="text-[10px] sm:text-xs uppercase font-mono font-bold tracking-widest text-primary dark:text-sage block mb-1.5">
                   Core Credo
                 </span>
-                <p className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white font-heading tracking-tight">
+                <p className="text-lg sm:text-2xl md:text-3xl font-extrabold text-white font-heading tracking-tight leading-tight">
                   &ldquo;Strength is visible. Discipline is structured. Progress is personal.&rdquo;
                 </p>
                 <span className="text-xs sm:text-sm text-white/70 block mt-2">
@@ -289,7 +292,6 @@ export default function Home() {
         eyebrow="Sanctioned Proof"
         title="Tested on the Platform"
         description="True coaching mastery starts with personal adherence. Siddharth tests his methodology against strict national competition standards."
-        className="py-12"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Featured Achievement Card (Section 28) */}
@@ -344,7 +346,6 @@ export default function Home() {
         eyebrow="Verified Credentials"
         title="Accredited Education"
         description="Continuous professional education grounded in peer-reviewed exercise physiology, biomechanics, and sports nutrition."
-        className="py-12"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {certificates.slice(0, 3).map((cert, idx) => (
@@ -369,7 +370,6 @@ export default function Home() {
         eyebrow="Client Outcomes"
         title="Real Humans. Measurable Vitality."
         description="Authentic client accounts. No manufactured hype or guaranteed quick fixes—just consistent progress earned through discipline."
-        className="py-12"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           {/* Featured Large Testimonial (Section 33) */}
@@ -398,7 +398,6 @@ export default function Home() {
         eyebrow="Coaching Tiers"
         title="Transparent Starting Points"
         description="Clear, non-transactional partnership structures. Understand the scope in under ten seconds."
-        className="py-12"
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {plans.slice(0, 3).map((plan, idx) => (

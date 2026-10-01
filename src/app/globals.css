@@ -10,38 +10,32 @@
   --color-surface: var(--surface);
   --color-surface-glass: var(--surface-glass);
   --color-surface-glass-strong: var(--surface-glass-strong);
-  
+
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
   --font-heading: var(--font-geist-sans), system-ui, sans-serif;
-  
+
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
   --color-border-glass: var(--border-glass);
   --color-destructive: var(--destructive);
-  
+
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
-  
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
-  
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
-  
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
-  
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
-  
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  
   --color-highlight: var(--highlight);
   --color-sage: var(--sage);
-  
+
   --radius-sm: 0.625rem;
   --radius-md: 1rem;
   --radius-lg: 1.5rem;
@@ -50,44 +44,43 @@
   --radius-full: 9999px;
 }
 
+/* ==========================================================================
+   LIGHT THEME — Section 5
+   ========================================================================== */
 :root {
-  /* =========================================================================
-     LIQUID GLASS × CALM STRENGTH × FOREST & SAGE (LIGHT THEME)
-     Section 5 Specification
-     ========================================================================= */
   --background: #F2F5F0;
   --surface: #FFFFFF;
-  --surface-glass: rgba(255, 255, 255, 0.48);
-  --surface-glass-strong: rgba(255, 255, 255, 0.68);
-  
-  --primary: #173C32;          /* Deep Forest Green */
+  --surface-glass: rgba(255, 255, 255, 0.52);
+  --surface-glass-strong: rgba(255, 255, 255, 0.76);
+
+  --primary: #173C32;
   --primary-foreground: #F2F5F0;
   --primary-light: #2D5E50;
-  
-  --secondary: #477A68;        /* Forest Slate */
+
+  --secondary: #477A68;
   --secondary-foreground: #FFFFFF;
-  
+
   --sage: #91B6A4;
-  --accent: #B7D8C7;           /* Sage Accent */
+  --accent: #B7D8C7;
   --accent-foreground: #10231E;
-  
-  --foreground: #10231E;       /* High Contrast Deep Charcoal Green */
+
+  --foreground: #10231E;
   --card: rgba(255, 255, 255, 0.55);
   --card-foreground: #10231E;
-  
-  --popover: rgba(255, 255, 255, 0.85);
+
+  --popover: rgba(255, 255, 255, 0.92);
   --popover-foreground: #10231E;
-  
+
   --muted: #E2E8DF;
-  --muted-foreground: #5C6B65;  /* Subtle forest charcoal */
-  
-  --highlight: #D8C89E;        /* Warm gold highlight */
+  --muted-foreground: #5C6B65;
+
+  --highlight: #D8C89E;
   --destructive: #B91C1C;
-  
-  --border: rgba(255, 255, 255, 0.65);
-  --border-glass: rgba(255, 255, 255, 0.65);
-  --glass-edge: rgba(255, 255, 255, 0.7);
-  --input: rgba(255, 255, 255, 0.65);
+
+  --border: rgba(23, 60, 50, 0.14);
+  --border-glass: rgba(255, 255, 255, 0.70);
+  --glass-edge: rgba(255, 255, 255, 0.75);
+  --input: rgba(255, 255, 255, 0.85);
   --ring: #173C32;
 
   --radius: 1.25rem;
@@ -96,96 +89,149 @@
   --spacing: 1.5rem;
   --motion: 200ms cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Dual Layer Soft Shadows (Section 61) */
-  --shadow: 
-    0 8px 32px 0 rgba(23, 60, 50, 0.08),
-    0 2px 8px 0 rgba(16, 35, 30, 0.04);
-  
-  --shadow-hover: 
-    0 16px 40px 0 rgba(23, 60, 50, 0.12),
-    0 4px 12px 0 rgba(16, 35, 30, 0.06);
+  --shadow:
+    0 4px 16px 0 rgba(23, 60, 50, 0.08),
+    0 1px 4px 0 rgba(16, 35, 30, 0.04);
+
+  --shadow-hover:
+    0 12px 32px 0 rgba(23, 60, 50, 0.14),
+    0 3px 10px 0 rgba(16, 35, 30, 0.06);
 
   --shadow-focus:
-    0 20px 48px 0 rgba(23, 60, 50, 0.16),
+    0 16px 40px 0 rgba(23, 60, 50, 0.18),
     0 0 0 2px var(--primary);
 
-  --inner-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  --inner-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.60);
 }
 
+/* ==========================================================================
+   DARK THEME — Section 6
+   ========================================================================== */
 .dark {
-  /* =========================================================================
-     LIQUID GLASS × CINEMATIC OBSIDIAN FOREST (DARK THEME)
-     Section 6 Specification
-     ========================================================================= */
   --background: #07120F;
   --surface: #0D1D18;
   --surface-glass: rgba(20, 40, 34, 0.52);
-  --surface-glass-strong: rgba(27, 54, 46, 0.72);
-  
-  --primary: #76B99D;          /* Luminous Emerald Sage */
+  --surface-glass-strong: rgba(27, 54, 46, 0.76);
+
+  --primary: #76B99D;
   --primary-foreground: #07120F;
   --primary-light: #9BC9B1;
-  
+
   --secondary: #1E3D34;
   --secondary-foreground: #F2F6F3;
-  
+
   --sage: #9BC9B1;
   --accent: #9BC9B1;
   --accent-foreground: #07120F;
-  
-  --foreground: #F2F6F3;       /* Crisp glass white */
-  --card: rgba(20, 40, 34, 0.52);
+
+  --foreground: #F2F6F3;
+  --card: rgba(20, 40, 34, 0.55);
   --card-foreground: #F2F6F3;
-  
-  --popover: rgba(13, 29, 24, 0.88);
+
+  --popover: rgba(13, 29, 24, 0.94);
   --popover-foreground: #F2F6F3;
-  
+
   --muted: #0D1D18;
-  --muted-foreground: #AABBB3;  /* Muted sage-grey */
-  
-  --highlight: #D8C89E;        /* Warm gold highlight */
+  --muted-foreground: #AABBB3;
+
+  --highlight: #D8C89E;
   --destructive: #EF4444;
-  
-  --border: rgba(255, 255, 255, 0.12);
-  --border-glass: rgba(255, 255, 255, 0.12);
-  --glass-edge: rgba(255, 255, 255, 0.12);
-  --input: rgba(13, 29, 24, 0.75);
+
+  --border: rgba(255, 255, 255, 0.10);
+  --border-glass: rgba(255, 255, 255, 0.13);
+  --glass-edge: rgba(255, 255, 255, 0.13);
+  --input: rgba(13, 29, 24, 0.82);
   --ring: #76B99D;
 
-  --shadow: 
-    0 12px 36px 0 rgba(0, 0, 0, 0.55),
-    0 0 1px 1px rgba(255, 255, 255, 0.06);
+  --shadow:
+    0 8px 28px 0 rgba(0, 0, 0, 0.55),
+    0 0 1px 1px rgba(255, 255, 255, 0.05);
 
-  --shadow-hover: 
-    0 18px 48px 0 rgba(0, 0, 0, 0.7),
-    0 0 2px 1px rgba(118, 185, 157, 0.25);
+  --shadow-hover:
+    0 16px 44px 0 rgba(0, 0, 0, 0.70),
+    0 0 2px 1px rgba(118, 185, 157, 0.22);
 
   --shadow-focus:
-    0 24px 56px 0 rgba(0, 0, 0, 0.8),
+    0 20px 52px 0 rgba(0, 0, 0, 0.80),
     0 0 0 2px var(--primary);
 
   --inner-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
+/* ==========================================================================
+   BASE LAYER
+   ========================================================================== */
 @layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   * {
     @apply border-border;
+    min-width: 0;
   }
-  body {
-    @apply bg-background text-foreground antialiased relative min-h-screen;
-    background-color: var(--background);
-    color: var(--foreground);
-  }
+
   html {
     @apply font-sans scroll-smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    @apply antialiased relative min-h-screen;
+    overflow-x: hidden;
+  }
+
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  /* Skip-to-content accessibility link (Section 68) */
+  .skip-link {
+    position: absolute;
+    top: -999px;
+    left: -999px;
+    z-index: 9999;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    font-weight: 700;
+    border-radius: 0 0 0.75rem 0;
+    font-size: 0.875rem;
+    text-decoration: none;
+  }
+
+  .skip-link:focus {
+    top: 0;
+    left: 0;
+    outline: 3px solid var(--highlight);
+    outline-offset: 2px;
+  }
+
+  /* Subtle environmental noise texture (Section 9) */
+  .bg-mesh-texture {
+    background-image: radial-gradient(rgba(23, 60, 50, 0.025) 1px, transparent 0);
+    background-size: 28px 28px;
+  }
+
+  .dark .bg-mesh-texture {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 0);
+    background-size: 28px 28px;
   }
 }
 
-/* =========================================================================
-   LIQUID GLASS ENGINE (Sections 2, 3, 19, 55, 58-62, 82-84)
-   ========================================================================= */
+/* ==========================================================================
+   LIQUID GLASS ENGINE — Sections 2, 3, 19, 55, 58-62, 82-84
+   ========================================================================== */
 
-/* Default Liquid Glass Material (Tier 1) */
 .liquid-glass {
   background-color: var(--surface-glass);
   backdrop-filter: blur(var(--blur)) saturate(160%);
@@ -193,14 +239,14 @@
   border: 1px solid var(--border-glass);
   box-shadow: var(--shadow), var(--inner-highlight);
   border-radius: var(--radius);
-  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 200ms ease,
-              border-color 200ms ease;
+  transition:
+    transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 200ms ease,
+    border-color 200ms ease;
   position: relative;
 }
 
-/* Strong Focus Liquid Glass (Layer 2) */
 .liquid-glass-strong {
   background-color: var(--surface-glass-strong);
   backdrop-filter: blur(var(--blur-strong)) saturate(180%);
@@ -208,33 +254,31 @@
   border: 1px solid var(--border-glass);
   box-shadow: var(--shadow), var(--inner-highlight);
   border-radius: var(--radius);
-  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
 }
 
-/* Subtle Layer 0/1 Glass */
 .liquid-glass-subtle {
   background-color: rgba(255, 255, 255, 0.28);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.40);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 
 .dark .liquid-glass-subtle {
-  background-color: rgba(20, 40, 34, 0.32);
+  background-color: rgba(20, 40, 34, 0.34);
   border-color: rgba(255, 255, 255, 0.08);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
-/* Interactive Glass Card Hover */
 .liquid-glass-hover:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-hover), var(--inner-highlight);
 }
 
-/* Glass Pill (Section 13, 18) */
 .glass-pill {
   border-radius: 9999px;
   background-color: var(--surface-glass);
@@ -255,41 +299,47 @@
   transform: scale(0.98);
 }
 
-/* Section 19: Liquid Button Material with hover sweep */
+/* ==========================================================================
+   BUTTON SYSTEM — Sections 17-20
+   ========================================================================== */
+
 .glass-btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  min-height: 48px;
-  padding: 0 24px;
   font-weight: 600;
-  font-size: 0.95rem;
+  letter-spacing: -0.01em;
   background-color: var(--primary);
   color: var(--primary-foreground);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 16px 0 rgba(23, 60, 50, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 4px 14px 0 rgba(23, 60, 50, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
   position: relative;
   overflow: hidden;
   cursor: pointer;
   outline: none;
-  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+  white-space: nowrap;
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .glass-btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px 0 rgba(23, 60, 50, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 8px 22px 0 rgba(23, 60, 50, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.36);
 }
 
 .glass-btn-primary:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 .glass-btn-primary:focus-visible {
-  box-shadow: 0 0 0 3px var(--highlight), 0 4px 16px 0 rgba(23, 60, 50, 0.3);
+  outline: 2px solid var(--highlight);
+  outline-offset: 3px;
 }
 
-/* Light Sweep effect for primary CTA */
 .glass-btn-primary::after {
   content: "";
   position: absolute;
@@ -297,8 +347,8 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.25) 50%, transparent 70%);
-  transition: left 450ms ease;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.22) 50%, transparent 70%);
+  transition: left 420ms ease;
   pointer-events: none;
 }
 
@@ -306,16 +356,13 @@
   left: 100%;
 }
 
-/* Secondary Button: Transparent Liquid Glass (Section 17) */
 .glass-btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  min-height: 48px;
-  padding: 0 24px;
   font-weight: 600;
-  font-size: 0.95rem;
+  letter-spacing: -0.01em;
   background-color: var(--surface-glass);
   color: var(--foreground);
   backdrop-filter: blur(14px);
@@ -326,6 +373,7 @@
   overflow: hidden;
   cursor: pointer;
   outline: none;
+  white-space: nowrap;
   transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
 
@@ -336,24 +384,31 @@
 }
 
 .glass-btn-secondary:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 .glass-btn-secondary:focus-visible {
-  box-shadow: 0 0 0 3px var(--sage);
+  outline: 2px solid var(--sage);
+  outline-offset: 3px;
 }
 
-/* Section 42: Opaque & Highly Legible Glass Input */
+/* ==========================================================================
+   FORM INPUTS — Sections 42, 87
+   ========================================================================== */
+
 .glass-input {
+  width: 100%;
+  display: block;
   background-color: var(--input);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border);
   color: var(--foreground);
-  border-radius: 1rem;
+  border-radius: 0.875rem;
   padding: 0.75rem 1rem;
-  font-size: 0.95rem;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
 
@@ -361,14 +416,28 @@
   outline: none;
   border-color: var(--primary);
   background-color: var(--surface);
-  box-shadow: 0 0 0 3px rgba(23, 60, 50, 0.12), inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 3px rgba(23, 60, 50, 0.10), inset 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.dark .glass-input {
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .dark .glass-input:focus {
-  box-shadow: 0 0 0 3px rgba(118, 185, 157, 0.2), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  border-color: var(--primary);
+  background-color: rgba(20, 40, 34, 0.82);
+  box-shadow: 0 0 0 3px rgba(118, 185, 157, 0.18), inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Subtle 2.5% Environmental Noise (Section 9) */
+.glass-input::placeholder {
+  color: var(--muted-foreground);
+  opacity: 0.75;
+}
+
+/* ==========================================================================
+   BACKGROUND NOISE — Section 9
+   ========================================================================== */
+
 .bg-ambient-noise {
   background-image: radial-gradient(rgba(23, 60, 50, 0.03) 1px, transparent 0);
   background-size: 24px 24px;
@@ -379,48 +448,66 @@
   background-size: 24px 24px;
 }
 
-/* Section 98: Browser Fallback without backdrop-filter */
+/* ==========================================================================
+   BROWSER FALLBACK — Section 98
+   ========================================================================== */
+
 @supports not (backdrop-filter: blur(10px)) {
   .liquid-glass,
   .liquid-glass-strong,
   .glass-pill,
   .glass-btn-secondary {
-    background-color: #FFFFFF !important;
+    background-color: rgba(255, 255, 255, 0.94) !important;
   }
+
   .dark .liquid-glass,
   .dark .liquid-glass-strong,
   .dark .glass-pill,
   .dark .glass-btn-secondary {
-    background-color: #0D1D18 !important;
+    background-color: rgba(13, 29, 24, 0.96) !important;
   }
 }
 
-/* Accessibility: Prefers Reduced Motion (Section 69) */
+/* ==========================================================================
+   ACCESSIBILITY — Sections 68, 69, 114
+   ========================================================================== */
+
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
   .glass-btn-primary::after {
     display: none !important;
   }
+
+  .liquid-glass-hover:hover {
+    transform: none !important;
+  }
 }
 
-/* Accessibility: High Contrast (Section 68) */
 @media (prefers-contrast: more) {
   .liquid-glass,
   .liquid-glass-strong {
     border-width: 2px !important;
     border-color: currentColor !important;
     background-color: var(--surface) !important;
+    backdrop-filter: none !important;
+  }
+
+  .glass-btn-primary,
+  .glass-btn-secondary {
+    border-width: 2px !important;
   }
 }
 
-/* Backward compatibility aliases */
+/* ==========================================================================
+   BACKWARD COMPAT ALIASES
+   ========================================================================== */
+
 .neu-card {
   background-color: var(--surface-glass);
   backdrop-filter: blur(var(--blur)) saturate(160%);
@@ -448,4 +535,29 @@
   background-color: var(--input);
   border: 1px solid var(--border);
   border-radius: 1rem;
+}
+
+/* ==========================================================================
+   SCROLL REVEAL UTILITY
+   ========================================================================== */
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(16px) scale(0.985);
+  transition:
+    opacity 480ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 480ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

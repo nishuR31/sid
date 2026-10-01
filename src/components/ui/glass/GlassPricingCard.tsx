@@ -37,7 +37,7 @@ export function GlassPricingCard({
       className={cn(
         "rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative",
         recommended
-          ? "liquid-glass-strong border-sage/50 dark:border-primary/50 shadow-2xl scale-[1.02] z-10"
+          ? "liquid-glass-strong border-sage/50 dark:border-primary/50 shadow-2xl ring-1 ring-sage/30 dark:ring-primary/30 z-10"
           : "liquid-glass hover:-translate-y-1 hover:border-primary/30",
         className
       )}

@@ -93,14 +93,14 @@ export function GlassSection({
 }: GlassSectionProps) {
   return (
     <section
-      className={cn("py-16 sm:py-24 lg:py-32 relative", className)}
+      className={cn("py-12 sm:py-16 lg:py-20 relative", className)}
       {...props}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div
           className={cn(
-            "flex flex-col gap-3 mb-12 sm:mb-16",
-            align === "center" ? "text-center items-center max-w-3xl mx-auto" : "max-w-2xl"
+            "flex flex-col gap-3 mb-10 sm:mb-14",
+            align === "center" ? "text-center items-center max-w-3xl mx-auto" : "max-w-2xl mx-auto lg:mx-0"
           )}
         >
           {eyebrow && (
