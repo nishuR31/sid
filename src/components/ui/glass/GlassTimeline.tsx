@@ -50,8 +50,8 @@ export function GlassTimeline({ items }: { items: AchievementItem[] }) {
     <div className="relative pl-8 sm:pl-10 border-l-2 border-primary/20 dark:border-primary/15 space-y-8 my-6">
       {items.map((item, i) => (
         <div key={i} className="relative group min-w-0">
-          {/* Glass Node Dot on the Rail — positioned using CSS, not px offsets */}
-          <div className="absolute -left-[calc(2rem+4px)] sm:-left-[calc(2.5rem+4px)] top-2 size-3.5 rounded-full bg-primary/90 shadow-sm group-hover:scale-125 group-hover:shadow-primary/40 group-hover:shadow-md transition-all duration-300 border-2 border-background" />
+          {/* Glass Node Dot on the Rail — positioned using precise calc for perfect centering */}
+          <div className="absolute -left-[calc(2rem+1px-7px)] sm:-left-[calc(2.5rem+1px-7px)] top-3 size-3.5 rounded-full bg-primary/90 shadow-sm group-hover:scale-125 group-hover:shadow-primary/40 group-hover:shadow-md transition-all duration-300 border-2 border-background" />
 
           {/* Achievement Glass Card */}
           <div className="liquid-glass p-5 sm:p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 min-w-0">
