@@ -3,8 +3,19 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Search, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import {
+  Menu,
+  X,
+  Search,
+  Home,
+  User,
+  Target,
+  Award,
+  Send,
+  ArrowRight,
+  Mail,
+} from "lucide-react";
+import { GlassButton } from "@/components/ui/glass/GlassButton";
 import { siteConfig } from "@/content/site";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -28,14 +39,24 @@ export function MobileNav({ onOpenSearch }: MobileNavProps) {
     };
   }, [isOpen]);
 
+  // Close on Escape key (Section 89)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
+
+  // Section 15: Exactly 5 items (Home, About, Proof, Plans, Contact)
   const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About Siddharth" },
-    { href: "/plans", label: "Coaching Plans" },
-    { href: "/achievements", label: "Achievements" },
-    { href: "/certificates", label: "Certifications" },
-    { href: "/testimonials", label: "Client Stories" },
-    { href: "/contact", label: "Contact & Consult" },
+    { href: "/", label: "Home", icon: Home },
+    { href: "/about", label: "About", icon: User },
+    { href: "/achievements", label: "Proof & Results", icon: Award },
+    { href: "/plans", label: "Coaching Plans", icon: Target },
+    { href: "/contact", label: "Contact", icon: Send },
   ];
 
   return (
@@ -43,70 +64,147 @@ export function MobileNav({ onOpenSearch }: MobileNavProps) {
       <button
         onClick={onOpenSearch}
         type="button"
-        className="p-2.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/50 border border-border/60 transition-colors focus-visible:ring-2 focus-visible:ring-primary cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
+        className="size-10 rounded-full liquid-glass flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors cursor-pointer border border-white/40 dark:border-white/10"
         aria-label="Open search dialog"
       >
         <Search className="size-4" aria-hidden="true" />
       </button>
 
+      {/* Section 15: Contact CTA button on mobile header */}
+      <GlassButton asChild variant="primary" size="sm" className="hidden sm:inline-flex h-9 px-3.5 text-xs">
+        <Link href="/contact">Talk</Link>
+      </GlassButton>
+
+      {/* Menu Toggle */}
       <button
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={() => setIsOpen(true)}
         type="button"
         aria-expanded={isOpen}
         aria-controls="mobile-navigation"
-        className="p-2.5 rounded-xl text-foreground hover:bg-muted/50 border border-border/60 transition-colors focus-visible:ring-2 focus-visible:ring-primary cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
-        aria-label={isOpen ? "Close main menu" : "Open main menu"}
+        className="size-10 rounded-full liquid-glass flex items-center justify-center text-foreground cursor-pointer border border-white/40 dark:border-white/10"
+        aria-label="Open navigation menu"
       >
-        {isOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+        <Menu className="size-5" />
       </button>
 
-      {/* Mobile Drawer Backdrop & Menu */}
+      {/* Section 89: GlassSheet mobile menu sliding from top */}
       {isOpen && (
         <div
           id="mobile-navigation"
-          className="fixed inset-x-0 top-16 bottom-0 z-50 bg-background/95 backdrop-blur-xl border-t border-border flex flex-col justify-between p-6 overflow-y-auto animate-in fade-in-50 duration-200"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site navigation"
+          className="fixed inset-0 z-50 flex flex-col bg-background/90 dark:bg-[#07120F]/92 backdrop-blur-2xl animate-in fade-in-50 duration-200"
         >
-          <nav className="flex flex-col gap-2 pt-2" aria-label="Mobile Navigation">
+          {/* Top Bar with Brand & Close Button */}
+          <div className="flex items-center justify-between px-6 py-5 border-b border-border/40">
+            <Link
+              href="/"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-2.5 font-heading font-extrabold text-lg text-foreground"
+            >
+              <div className="size-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xs shadow-xs">
+                SF
+              </div>
+              <span className="font-black tracking-tight">{siteConfig.name}</span>
+            </Link>
+
+            <button
+              onClick={() => setIsOpen(false)}
+              type="button"
+              className="size-10 rounded-full liquid-glass flex items-center justify-center text-foreground cursor-pointer border border-white/50 dark:border-white/15"
+              aria-label="Close navigation menu"
+            >
+              <X className="size-5" />
+            </button>
+          </div>
+
+          {/* Search trigger inside mobile sheet */}
+          <div className="px-6 pt-5 pb-2">
+            <button
+              type="button"
+              onClick={() => {
+                setIsOpen(false);
+                onOpenSearch();
+              }}
+              className="w-full flex items-center justify-between px-4 py-3 rounded-2xl liquid-glass text-muted-foreground hover:text-foreground text-sm cursor-pointer border border-white/40 dark:border-white/10"
+            >
+              <span className="flex items-center gap-2.5">
+                <Search className="size-4 text-primary dark:text-sage" />
+                <span>Search plans, credentials, proof...</span>
+              </span>
+              <kbd className="text-[10px] uppercase font-mono px-2 py-0.5 rounded-md bg-white/40 dark:bg-black/40 text-muted-foreground">
+                ⌘K
+              </kbd>
+            </button>
+          </div>
+
+          {/* Navigation Items (Section 15: 5 core items) */}
+          <nav className="flex-1 overflow-y-auto px-6 py-4 space-y-2" aria-label="Mobile Navigation">
             {navItems.map((item) => {
-              const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+              const Icon = item.icon;
+              const isActive =
+                pathname === item.href ||
+                (item.href !== "/" && pathname.startsWith(item.href));
+
               return (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                   aria-current={isActive ? "page" : undefined}
-                  className={`flex items-center justify-between px-4 py-3 rounded-2xl text-base transition-colors ${
+                  className={`flex items-center justify-between px-5 py-4 rounded-2xl text-base transition-all min-h-[52px] ${
                     isActive
-                      ? "bg-primary/15 dark:bg-primary/25 text-foreground dark:text-white font-bold border border-primary/30"
-                      : "text-foreground/90 hover:bg-muted font-medium"
+                      ? "liquid-glass-strong text-primary dark:text-sage font-bold border border-primary/40 shadow-xs"
+                      : "liquid-glass text-foreground/90 hover:text-foreground font-semibold"
                   }`}
                 >
-                  <span>{item.label}</span>
-                  {isActive && <span className="text-xs bg-primary/20 text-primary dark:text-primary-light px-2.5 py-0.5 rounded-full font-bold">Active</span>}
+                  <div className="flex items-center gap-3.5">
+                    <div
+                      className={`p-2 rounded-xl shrink-0 ${
+                        isActive
+                          ? "bg-primary text-primary-foreground shadow-xs"
+                          : "bg-white/30 dark:bg-white/10 text-muted-foreground"
+                      }`}
+                    >
+                      <Icon className="size-4" />
+                    </div>
+                    <span>{item.label}</span>
+                  </div>
+                  {isActive ? (
+                    <span className="text-[10px] bg-primary/10 text-primary dark:text-sage px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider">
+                      Current
+                    </span>
+                  ) : (
+                    <ArrowRight className="size-4 text-muted-foreground/50" />
+                  )}
                 </Link>
               );
             })}
           </nav>
 
-          <div className="pt-6 border-t border-border/80 flex flex-col gap-4">
-            <div className="flex items-center justify-between px-2">
-              <span className="text-sm font-medium text-muted-foreground">Color Theme</span>
+          {/* Bottom Sheet Controls */}
+          <div className="p-6 border-t border-border/40 liquid-glass-subtle flex flex-col gap-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                Theme
+              </span>
               <ThemeToggle />
             </div>
 
-            <Button asChild size="lg" className="w-full rounded-2xl text-base font-semibold shadow-md">
+            <GlassButton asChild variant="primary" size="lg" className="w-full">
               <Link href="/contact" onClick={() => setIsOpen(false)}>
                 Talk to Siddharth
               </Link>
-            </Button>
+            </GlassButton>
 
-            <div className="flex items-center justify-center gap-6 pt-2 text-xs text-muted-foreground">
+            <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground pt-1">
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="inline-flex items-center gap-1.5 hover:text-primary transition-colors py-2"
+                className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
               >
                 <Mail className="size-3.5" />
-                {siteConfig.email}
+                <span>{siteConfig.email}</span>
               </a>
             </div>
           </div>

@@ -35,15 +35,15 @@ export function SocialLinks() {
   const getIcon = (platform: string) => {
     switch (platform.toLowerCase()) {
       case "instagram":
-        return <InstagramIcon className="size-5 text-primary" />;
+        return <InstagramIcon className="size-5 text-primary dark:text-sage" />;
       case "youtube":
-        return <YoutubeIcon className="size-5 text-primary" />;
+        return <YoutubeIcon className="size-5 text-primary dark:text-sage" />;
       case "guardian":
-        return <ShieldCheck className="size-5 text-primary" />;
+        return <ShieldCheck className="size-5 text-primary dark:text-sage" />;
       case "linkedin":
-        return <LinkedinIcon className="size-5 text-primary" />;
+        return <LinkedinIcon className="size-5 text-primary dark:text-sage" />;
       default:
-        return <Mail className="size-5 text-primary" />;
+        return <Mail className="size-5 text-primary dark:text-sage" />;
     }
   };
 
@@ -71,20 +71,20 @@ export function SocialLinks() {
       {/* Direct Email Card */}
       <a
         href={`mailto:${siteConfig.email}`}
-        className="group p-5 rounded-3xl bg-card border border-border/80 clay-card clay-card-hover flex items-center justify-between transition-all"
+        className="group p-5 rounded-3xl liquid-glass flex items-center justify-between transition-all hover:-translate-y-1 hover:border-primary/40 border border-white/50 dark:border-white/10"
       >
         <div className="flex items-center gap-3.5">
-          <div className="size-11 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0 clay-pill">
+          <div className="size-11 rounded-2xl liquid-glass flex items-center justify-center text-primary dark:text-sage shrink-0">
             <Mail className="size-5" />
           </div>
           <div>
-            <span className="font-bold text-sm text-foreground group-hover:text-primary transition-colors block">
+            <span className="font-bold text-sm text-foreground group-hover:text-primary dark:group-hover:text-sage transition-colors block">
               Direct Email
             </span>
-            <span className="text-xs text-muted-foreground">Inquiries &amp; Consultations</span>
+            <span className="text-xs text-muted-foreground">{siteConfig.email}</span>
           </div>
         </div>
-        <ArrowUpRight className="size-4 text-muted-foreground group-hover:text-primary transition-colors" />
+        <ArrowUpRight className="size-4 text-muted-foreground group-hover:text-primary dark:group-hover:text-sage transition-colors" />
       </a>
 
       {/* Social Platforms & Referrals */}
@@ -94,20 +94,20 @@ export function SocialLinks() {
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="group p-5 rounded-3xl bg-card border border-border/80 clay-card clay-card-hover flex items-center justify-between transition-all"
+          className="group p-5 rounded-3xl liquid-glass flex items-center justify-between transition-all hover:-translate-y-1 hover:border-primary/40 border border-white/50 dark:border-white/10"
         >
           <div className="flex items-center gap-3.5">
-            <div className="size-11 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-primary clay-pill">
+            <div className="size-11 rounded-2xl liquid-glass flex items-center justify-center shrink-0">
               {getIcon(link.platform)}
             </div>
             <div>
-              <span className="font-bold text-sm text-foreground group-hover:text-primary transition-colors block">
+              <span className="font-bold text-sm text-foreground group-hover:text-primary dark:group-hover:text-sage transition-colors block">
                 {link.label}
               </span>
               <span className="text-xs text-muted-foreground">{getChannelInfo(link)}</span>
             </div>
           </div>
-          <ArrowUpRight className="size-4 text-muted-foreground group-hover:text-primary transition-colors" />
+          <ArrowUpRight className="size-4 text-muted-foreground group-hover:text-primary dark:group-hover:text-sage transition-colors" />
         </a>
       ))}
     </div>

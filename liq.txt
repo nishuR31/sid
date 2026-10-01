@@ -1,0 +1,2984 @@
+# Siddharth Fit
+
+## Liquid Glass Fitness Portfolio — UI/UX Master Design Specification
+
+Version: 1.0
+
+Design direction:
+
+**Liquid Glass × Premium Fitness × Calm Strength × Human Photography**
+
+The website should feel like a combination of:
+
+* premium personal-training studio
+* modern Apple-inspired interface material
+* calm wellness environment
+* high-performance fitness brand
+* editorial photography portfolio
+
+It must NOT feel like:
+
+* a generic gym website
+* bodybuilding template
+* crypto/Web3 landing page
+* SaaS dashboard
+* neon fitness application
+* over-animated Dribbble concept
+
+The visual language should communicate:
+
+**Strength without aggression.
+Technology without coldness.
+Luxury without excess.
+Motion without distraction.
+Fitness without visual noise.**
+
+---
+
+# 1. Core Design Concept
+
+The central visual metaphor is:
+
+## "A calm glass interface floating over human strength."
+
+Siddharth's real photography is the primary visual material.
+
+The Liquid Glass layer is secondary.
+
+The glass should frame, reveal, highlight and organize the photography.
+
+It should never compete with Siddharth.
+
+The hierarchy is:
+
+1. Siddharth
+2. Trust
+3. Coaching philosophy
+4. Proof
+5. Plans
+6. Contact
+7. Decorative effects
+
+Never reverse this hierarchy.
+
+---
+
+# 2. Liquid Glass Philosophy
+
+Liquid Glass should not mean:
+
+`opacity: 0.5 + blur()`
+
+everywhere.
+
+The visual system should simulate a physical translucent material through:
+
+* translucency
+* soft refraction
+* edge highlights
+* environmental tint
+* layered depth
+* subtle reflection
+* controlled blur
+* soft shadows
+* dynamic lighting
+* movement response
+
+The supplied Liquid Glass reference material explicitly distinguishes modern Liquid Glass from traditional static glassmorphism: the intended material responds optically to content beneath it rather than simply applying a static blur.
+
+For the website:
+
+### Tier 1 — CSS Liquid Glass
+
+Default.
+
+Use:
+
+* `backdrop-filter`
+* translucent backgrounds
+* borders
+* gradients
+* highlights
+* shadows
+* pseudo-elements
+
+Cheap and performant.
+
+### Tier 2 — SVG Refraction
+
+Use selectively.
+
+Good for:
+
+* hero glass lens
+* special buttons
+* logo treatment
+* decorative glass object
+
+### Tier 3 — WebGL
+
+Only for one optional hero/decorative object.
+
+Never make WebGL mandatory for navigation, text, pricing or primary interaction.
+
+---
+
+# 3. Liquid Glass Layers
+
+Use three visual depths.
+
+## Layer 0 — Environment
+
+Photography.
+
+Gradients.
+
+Ambient blobs.
+
+Gym environment.
+
+Background texture.
+
+This layer provides visual energy.
+
+## Layer 1 — Glass
+
+Navigation.
+
+Floating information panels.
+
+Buttons.
+
+Stats.
+
+Cards.
+
+Filters.
+
+This is the primary interactive layer.
+
+## Layer 2 — Focus
+
+Important CTA.
+
+Active navigation.
+
+Featured achievement.
+
+Featured plan.
+
+Contact action.
+
+These should have slightly stronger opacity and contrast.
+
+Never stack five translucent layers over each other.
+
+---
+
+# 4. Brand Mood
+
+Primary emotional sequence:
+
+### First impression
+
+"Professional."
+
+### Second
+
+"Strong."
+
+### Third
+
+"Calm."
+
+### Fourth
+
+"Trustworthy."
+
+### Fifth
+
+"I want to talk to this trainer."
+
+The design should not immediately scream:
+
+"GYM!"
+
+Instead it should communicate:
+
+"DISCIPLINED FITNESS COACH."
+
+---
+
+# 5. Color System
+
+The palette should be based around forest green, sage, glass white and deep charcoal.
+
+## Light Theme
+
+Background:
+
+`#F2F5F0`
+
+Primary:
+
+`#173C32`
+
+Secondary:
+
+`#477A68`
+
+Sage:
+
+`#91B6A4`
+
+Glass:
+
+`rgba(255,255,255,0.48)`
+
+Glass strong:
+
+`rgba(255,255,255,0.68)`
+
+Border:
+
+`rgba(255,255,255,0.65)`
+
+Text:
+
+`#10231E`
+
+Muted text:
+
+`#5C6B65`
+
+Accent:
+
+`#B7D8C7`
+
+Warm highlight:
+
+`#D8C89E`
+
+---
+
+# 6. Dark Theme
+
+Background:
+
+`#07120F`
+
+Surface:
+
+`#0D1D18`
+
+Primary glass:
+
+`rgba(20,40,34,0.52)`
+
+Strong glass:
+
+`rgba(27,54,46,0.72)`
+
+Primary text:
+
+`#F2F6F3`
+
+Secondary text:
+
+`#AABBB3`
+
+Muted:
+
+`#73857D`
+
+Green:
+
+`#76B99D`
+
+Sage:
+
+`#9BC9B1`
+
+Highlight:
+
+`#D8C89E`
+
+Glass edge:
+
+`rgba(255,255,255,0.12)`
+
+---
+
+# 7. Color Ratio
+
+Do not use all colors equally.
+
+Recommended approximate distribution:
+
+60%
+
+environment/background neutrals
+
+25%
+
+forest/deep green
+
+10%
+
+glass/sage
+
+5%
+
+highlight/accent
+
+The accent should remain rare.
+
+This prevents the site from becoming visually noisy.
+
+---
+
+# 8. Gradient System
+
+Gradients should be environmental, not decorative.
+
+Good:
+
+forest → transparent
+
+sage → transparent
+
+cream → transparent
+
+dark green → black
+
+Bad:
+
+rainbow gradients
+
+neon purple + green
+
+red + blue
+
+high-saturation gaming gradients
+
+Example hero:
+
+deep forest background
+
+*
+
+large blurred sage orb
+
+*
+
+warm photographic light
+
+*
+
+transparent glass
+
+---
+
+# 9. Background System
+
+The background should have very subtle movement.
+
+Possible layers:
+
+1. Base color.
+2. Large radial gradient.
+3. Photograph.
+4. Ambient green glow.
+5. Fine noise texture.
+6. Glass foreground.
+
+Noise opacity:
+
+approximately 2–4%.
+
+The user should not consciously notice the noise.
+
+---
+
+# 10. Photography Is the Main UI Asset
+
+Siddharth's photography should occupy significantly more visual area than decorative graphics.
+
+Required image types:
+
+### Portrait
+
+Professional hero portrait.
+
+### Training
+
+Siddharth coaching someone.
+
+### Strength
+
+Workout/training image.
+
+### Lifestyle
+
+Natural non-gym photograph.
+
+### Credentials
+
+Certificate images.
+
+### Social proof
+
+Client photographs where permission exists.
+
+---
+
+# 11. Hero Photography
+
+Preferred composition:
+
+Siddharth occupies approximately 45–60% of the hero visual field.
+
+The background should not overpower him.
+
+Use:
+
+* soft depth
+* controlled contrast
+* subtle vignette
+* environmental green tint
+* glass information panel
+
+Possible hero composition:
+
+```
+┌──────────────────────────────────────────┐
+│  NAV GLASS                               │
+│                                          │
+│  PERSONAL TRAINER                        │
+│                                          │
+│  Build strength.                        │
+│  Build discipline.          [Siddharth] │
+│                                          │
+│  Coaching designed around your goals.   │
+│                                          │
+│  [Talk to Siddharth]                    │
+│                                          │
+│                     floating glass card │
+└──────────────────────────────────────────┘
+```
+
+---
+
+# 12. Hero Glass Panel
+
+One large floating glass panel can contain:
+
+Certified Trainer
+
+or
+
+Personal Coaching
+
+or
+
+"Strength • Mobility • Discipline"
+
+It should overlap the portrait slightly.
+
+The panel must not cover Siddharth's face.
+
+---
+
+# 13. Navigation
+
+Desktop navigation:
+
+Floating pill.
+
+Not full-width opaque navbar.
+
+Example:
+
+```
+╭──────────────────────────────────────────────╮
+│ S  Siddharth Fit    About Plans Results      │
+│                       Certificates   Contact  │
+╰──────────────────────────────────────────────╯
+```
+
+Material:
+
+semi-transparent Liquid Glass.
+
+Blur:
+
+moderate.
+
+Border:
+
+hairline.
+
+Shadow:
+
+very soft.
+
+Position:
+
+floating approximately 20–24px from viewport edges.
+
+---
+
+# 14. Navigation Behavior
+
+At top:
+
+transparent/floating.
+
+After scrolling:
+
+slightly more opaque.
+
+It should visually "settle" into the page.
+
+Avoid dramatic shrinking.
+
+Motion:
+
+150–250ms.
+
+---
+
+# 15. Mobile Navigation
+
+Mobile should use:
+
+floating bottom navigation OR compact top glass navigation.
+
+Preferred:
+
+top glass navigation with:
+
+logo
+
+menu
+
+contact CTA
+
+Menu opens as a glass sheet.
+
+Navigation items:
+
+Home
+
+About
+
+Proof
+
+Plans
+
+Contact
+
+Do not show seven items simultaneously on mobile.
+
+---
+
+# 16. Fitts's Law
+
+Important controls should be physically easy to hit.
+
+Minimum interactive target:
+
+approximately 44px.
+
+Primary CTA should have generous padding.
+
+Do not make tiny glass icons the only navigation mechanism.
+
+---
+
+# 17. Hero CTA
+
+Primary:
+
+**Talk to Siddharth**
+
+Secondary:
+
+**Explore Coaching**
+
+Primary button:
+
+solid/strong glass with green fill.
+
+Secondary:
+
+transparent glass.
+
+The primary CTA should be visually distinct.
+
+This applies the Von Restorff principle: one element should clearly stand apart from surrounding controls.
+
+---
+
+# 18. Button Design
+
+Button shape:
+
+pill.
+
+Height:
+
+48–56px.
+
+Horizontal padding:
+
+20–28px.
+
+Border:
+
+1px.
+
+Background:
+
+semi-transparent.
+
+Hover:
+
+slight lift.
+
+Active:
+
+slight compression.
+
+Focus:
+
+visible high-contrast ring.
+
+No giant glowing buttons.
+
+---
+
+# 19. Liquid Button Material
+
+Button layers:
+
+base glass
+
+*
+
+inner tint
+
+*
+
+top highlight
+
+*
+
+edge border
+
+*
+
+subtle shadow
+
+*
+
+hover light sweep
+
+The highlight should move slightly on pointer interaction.
+
+Do not animate continuously.
+
+---
+
+# 20. Button States
+
+Every button requires:
+
+default
+
+hover
+
+focus
+
+active
+
+disabled
+
+loading if applicable
+
+Error states where relevant.
+
+---
+
+# 21. Section Structure
+
+Each major section should have:
+
+eyebrow
+
+heading
+
+short explanatory paragraph
+
+content
+
+CTA where necessary
+
+Avoid giant walls of cards.
+
+---
+
+# 22. Section Spacing
+
+Desktop:
+
+120–160px between major sections.
+
+Tablet:
+
+80–120px.
+
+Mobile:
+
+64–96px.
+
+The site should breathe.
+
+Negative space is part of the luxury aesthetic.
+
+---
+
+# 23. About Section
+
+Use asymmetric composition.
+
+Left:
+
+large Siddharth image.
+
+Right:
+
+glass information card.
+
+Content:
+
+Who Siddharth is.
+
+Training philosophy.
+
+Experience.
+
+Specialties.
+
+Possible floating metrics:
+
+Years coaching
+
+Clients trained
+
+Certifications
+
+Specialization
+
+Only display factual values.
+
+---
+
+# 24. About Glass Card
+
+Use a large transparent surface.
+
+Inside:
+
+small eyebrow
+
+large heading
+
+body
+
+small credential chips
+
+CTA
+
+Do not place every sentence in separate cards.
+
+---
+
+# 25. Training Philosophy
+
+Use a horizontal sequence.
+
+Example:
+
+01
+
+Assess
+
+02
+
+Plan
+
+03
+
+Train
+
+04
+
+Adapt
+
+05
+
+Progress
+
+Each step appears as a minimal glass tile.
+
+On scroll:
+
+the active step gets slightly brighter.
+
+This creates narrative progression.
+
+---
+
+# 26. Services
+
+Use 3–4 services maximum.
+
+Example:
+
+Strength Training
+
+Fat Loss
+
+Mobility
+
+Personalized Coaching
+
+Each service:
+
+icon
+
+title
+
+one-line description
+
+small interaction
+
+Avoid 10 service cards.
+
+Choice overload should be explicitly avoided.
+
+---
+
+# 27. Service Card
+
+Glass surface.
+
+Hover:
+
+translateY(-4px)
+
+slight highlight
+
+icon shifts 2–4px
+
+No dramatic 3D spin.
+
+---
+
+# 28. Achievements
+
+This section should feel like a proof wall.
+
+Use:
+
+large achievement
+
+supporting achievements
+
+timeline
+
+Use visual hierarchy.
+
+Featured achievement:
+
+large.
+
+Secondary achievements:
+
+smaller.
+
+---
+
+# 29. Achievement Timeline
+
+Design:
+
+vertical glass rail.
+
+Each milestone:
+
+year
+
+achievement
+
+organization
+
+small image/logo if supplied.
+
+The timeline should visually communicate progression.
+
+---
+
+# 30. Certificates
+
+Certificates should use a premium gallery.
+
+Grid:
+
+2–3 columns desktop.
+
+1–2 mobile.
+
+Each certificate:
+
+glass frame
+
+certificate preview
+
+issuer
+
+title
+
+year
+
+"View Certificate"
+
+---
+
+# 31. Certificate Preview
+
+Do not show the certificate as a tiny thumbnail.
+
+Use enough image area to establish authenticity.
+
+On hover:
+
+slight zoom
+
+glass highlight
+
+metadata becomes more prominent.
+
+Click:
+
+dedicated certificate page.
+
+---
+
+# 32. Certificate Detail
+
+Layout:
+
+left:
+
+large certificate.
+
+right:
+
+credential information.
+
+Include:
+
+Issuer
+
+Credential
+
+Date
+
+Verification
+
+Related expertise
+
+CTA:
+
+"Ask Siddharth About Coaching"
+
+---
+
+# 33. Testimonials
+
+Testimonials are social proof.
+
+Do not create an infinite carousel that makes users hunt for reviews.
+
+Preferred:
+
+large featured testimonial
+
+*
+
+2–3 smaller testimonials
+
+*
+
+optional horizontal scroll.
+
+Each testimonial:
+
+quote
+
+name
+
+context
+
+optional image
+
+verification indicator only when legitimate.
+
+---
+
+# 34. Testimonial Design
+
+Glass card with slightly warmer background.
+
+Client image:
+
+small circular image.
+
+Quote:
+
+large but not oversized.
+
+Use quotation mark as decorative SVG.
+
+Do not use fake star ratings.
+
+---
+
+# 35. Results / Transformations
+
+If Siddharth has legitimate before/after material:
+
+Create a dedicated Results section.
+
+Use consented imagery.
+
+Use:
+
+Before / After
+
+with contextual information.
+
+Never imply guaranteed results.
+
+If no verified results exist:
+
+do not create the section.
+
+---
+
+# 36. Plans Section
+
+Plans should look like premium service tiers, not e-commerce pricing.
+
+Three primary choices:
+
+Monthly
+
+Yearly
+
+Custom
+
+Guidance can be a fourth smaller option.
+
+---
+
+# 37. Pricing Card Hierarchy
+
+One card may be featured.
+
+But do not say:
+
+"Best"
+
+unless the business intentionally wants that label.
+
+Instead:
+
+"Popular"
+
+or
+
+"Most Flexible"
+
+only when factually appropriate.
+
+Price:
+
+large.
+
+Period:
+
+small.
+
+Description:
+
+short.
+
+Features:
+
+3–6 items.
+
+CTA:
+
+Discuss Plan.
+
+---
+
+# 38. Plan Comparison
+
+Do not build an enormous pricing matrix.
+
+Keep it simple.
+
+Users should understand differences in under 10 seconds.
+
+This directly supports Hick's Law and reduces cognitive load.
+
+---
+
+# 39. Custom Plan
+
+Custom coaching should be visually distinct.
+
+Use:
+
+large glass panel
+
+*
+
+abstract liquid shape
+
+*
+
+short statement
+
+*
+
+CTA.
+
+Example:
+
+"Your goal is specific.
+Your coaching should be too."
+
+CTA:
+
+Discuss Custom Coaching
+
+---
+
+# 40. Social Section
+
+Socials should not become a giant social-media wall.
+
+Use a simple glass strip:
+
+Instagram
+
+YouTube
+
+LinkedIn
+
+WhatsApp
+
+Only show actual platforms.
+
+---
+
+# 41. Contact Section
+
+This is the conversion endpoint.
+
+Large heading:
+
+"Ready to start?"
+
+Then:
+
+"Tell Siddharth what you're working toward."
+
+Contact card:
+
+Name
+
+Email
+
+Subject
+
+Message
+
+Send via Email
+
+---
+
+# 42. Contact Glass Form
+
+Form should be mostly opaque enough for readability.
+
+Do NOT use extremely transparent fields.
+
+Inputs:
+
+background:
+
+rgba(..., 0.55–0.75)
+
+border:
+
+visible.
+
+Focus:
+
+green accent.
+
+---
+
+# 43. Mailto UX
+
+Button:
+
+"Open Email"
+
+After activation:
+
+browser launches email client.
+
+Fallback:
+
+"Your email app didn't open? Copy Siddharth's email."
+
+---
+
+# 44. Footer
+
+Footer becomes the visual ending.
+
+Dark glass/charcoal environment.
+
+Logo.
+
+Short brand statement.
+
+Navigation.
+
+Socials.
+
+Contact.
+
+Copyright.
+
+Final CTA:
+
+"Start a conversation."
+
+The ending should be memorable.
+
+This follows the Peak-End Rule.
+
+---
+
+# 45. Search
+
+Search should feel like a premium command palette.
+
+Keyboard:
+
+Cmd/Ctrl + K.
+
+Glass dialog.
+
+Background:
+
+dimmed backdrop.
+
+Search field:
+
+large.
+
+Results:
+
+grouped.
+
+Pages
+
+Plans
+
+Certificates
+
+Achievements
+
+Services
+
+---
+
+# 46. Search Result Design
+
+Each result:
+
+icon
+
+title
+
+category
+
+small description
+
+keyboard shortcut if relevant
+
+Press Enter:
+
+navigate.
+
+Escape:
+
+close.
+
+---
+
+# 47. 404 Page
+
+Do not show:
+
+"404 Not Found"
+
+only.
+
+Use fitness metaphor:
+
+"Looks like this set got interrupted."
+
+Then:
+
+"Let's get you back on track."
+
+Actions:
+
+Home
+
+Plans
+
+Search
+
+Contact
+
+Visual:
+
+subtle 3D glass dumbbell.
+
+---
+
+# 48. Error Page
+
+Message:
+
+"Something interrupted the workout."
+
+Then:
+
+"Try again or head back to the main floor."
+
+Actions:
+
+Retry
+
+Home
+
+Contact
+
+No technical stack trace.
+
+---
+
+# 49. Loading States
+
+Avoid generic spinning loaders.
+
+Use:
+
+soft pulsing glass shimmer.
+
+For image:
+
+glass skeleton.
+
+For route:
+
+small smooth transition.
+
+Loading should be under approximately 400ms whenever possible.
+
+This supports the Doherty Threshold principle.
+
+---
+
+# 50. Microinteractions
+
+Required microinteractions:
+
+Button hover
+
+Button press
+
+Glass highlight
+
+Navigation transition
+
+Card lift
+
+Image reveal
+
+Scroll reveal
+
+Theme transition
+
+Search open
+
+Menu open
+
+Certificate preview
+
+CTA focus
+
+Do not animate everything.
+
+---
+
+# 51. Cursor Interaction
+
+Desktop only.
+
+Optional subtle cursor glow.
+
+Pointer should influence:
+
+hero glass
+
+selected cards
+
+3D decorative object
+
+Do not replace the normal cursor.
+
+Do not make cursor interaction necessary.
+
+---
+
+# 52. Parallax
+
+Hero:
+
+portrait moves approximately 4–12px.
+
+Background:
+
+2–5px.
+
+Glass panel:
+
+6–15px.
+
+Movement should be subtle.
+
+Mobile:
+
+disable.
+
+Reduced motion:
+
+disable.
+
+---
+
+# 53. 3D Glass Object
+
+Recommended hero object:
+
+transparent glass dumbbell or abstract weight.
+
+Characteristics:
+
+clear/translucent body
+
+soft green tint
+
+small specular highlights
+
+soft shadow
+
+low rotation speed
+
+No neon.
+
+The object should sit behind or beside Siddharth.
+
+It must never become the hero.
+
+---
+
+# 54. Liquid Blob
+
+Use 1–2 large abstract blobs.
+
+Shape:
+
+organic.
+
+Movement:
+
+very slow.
+
+Blur:
+
+high.
+
+Opacity:
+
+low.
+
+The blob establishes depth.
+
+Avoid multiple floating blobs everywhere.
+
+---
+
+# 55. Glass Reflection
+
+A subtle diagonal highlight can move across selected interactive components.
+
+Example:
+
+```
+background:
+linear-gradient(
+  120deg,
+  transparent 30%,
+  rgba(255,255,255,.15) 50%,
+  transparent 70%
+)
+```
+
+Trigger:
+
+hover.
+
+Not continuously.
+
+---
+
+# 56. Refraction
+
+Where supported:
+
+use SVG displacement for hero glass.
+
+The refraction should be strongest near the edges.
+
+Never distort text.
+
+Text must sit above the optical effect.
+
+---
+
+# 57. Typography on Glass
+
+Critical rule:
+
+**Text should not rely on glass transparency for contrast.**
+
+Use a sufficiently opaque text surface when necessary.
+
+Large text:
+
+high contrast.
+
+Body:
+
+high contrast.
+
+Metadata:
+
+moderate contrast.
+
+Do not put tiny gray text on translucent white glass.
+
+The supplied Liquid Glass material repeatedly identifies low contrast and text legibility as failure modes in its references.
+
+---
+
+# 58. Glass Opacity
+
+Recommended starting points:
+
+Subtle:
+
+0.25–0.40
+
+Normal:
+
+0.40–0.60
+
+Strong:
+
+0.60–0.80
+
+Critical controls:
+
+0.70–0.90
+
+These are starting values, not rigid rules.
+
+---
+
+# 59. Blur
+
+Background blur:
+
+12–24px.
+
+Strong glass:
+
+24–40px.
+
+Avoid:
+
+80px+ blur everywhere.
+
+Large blur surfaces can become expensive and visually muddy.
+
+---
+
+# 60. Border
+
+Glass border:
+
+1px solid translucent white.
+
+Light:
+
+rgba(255,255,255,.45)
+
+Dark:
+
+rgba(255,255,255,.10–.16)
+
+The border should describe the glass edge.
+
+---
+
+# 61. Shadows
+
+Use two-layer shadows.
+
+Example concept:
+
+ambient shadow
+
+*
+
+small contact shadow
+
+Avoid black heavy shadows.
+
+Light theme:
+
+soft neutral shadow.
+
+Dark theme:
+
+dark ambient shadow + subtle green atmospheric glow.
+
+---
+
+# 62. Inner Highlight
+
+Use:
+
+inset 0 1px 0 rgba(255,255,255,.18)
+
+This creates a physical glass edge.
+
+---
+
+# 63. Card Depth System
+
+Level 0:
+
+flat content.
+
+Level 1:
+
+standard glass.
+
+Level 2:
+
+floating glass.
+
+Level 3:
+
+hero/featured glass.
+
+Do not use Level 3 everywhere.
+
+---
+
+# 64. Grid System
+
+Desktop:
+
+12-column grid.
+
+Content width:
+
+approximately 1200–1320px.
+
+Large screens:
+
+maintain comfortable reading width.
+
+Text blocks:
+
+60–75 characters per line where possible.
+
+---
+
+# 65. Mobile Grid
+
+Use:
+
+4-column conceptual grid.
+
+Spacing should remain generous.
+
+Avoid squeezing desktop cards into mobile.
+
+Cards become:
+
+stacked
+
+or horizontal scrolling when appropriate.
+
+---
+
+# 66. Mobile Hero
+
+Do not attempt desktop composition on mobile.
+
+Structure:
+
+eyebrow
+
+headline
+
+description
+
+CTA
+
+portrait
+
+small credential glass card
+
+The portrait becomes the primary visual.
+
+---
+
+# 67. Mobile Glass
+
+Reduce:
+
+blur
+
+transparency
+
+parallax
+
+3D
+
+floating elements
+
+Mobile needs stronger content contrast.
+
+This improves:
+
+performance
+
+readability
+
+battery
+
+touch usability
+
+---
+
+# 68. Accessibility
+
+Liquid Glass must never override accessibility.
+
+Support:
+
+prefers-reduced-motion
+
+prefers-contrast
+
+keyboard navigation
+
+focus indicators
+
+screen readers
+
+high contrast mode
+
+The interface should remain understandable without:
+
+blur
+
+transparency
+
+3D
+
+hover
+
+animation.
+
+---
+
+# 69. Reduced Motion
+
+When enabled:
+
+No parallax.
+
+No floating animation.
+
+No 3D rotation.
+
+No animated glass reflection.
+
+Scroll reveals become instant.
+
+Transitions become extremely short or removed.
+
+---
+
+# 70. Theme System
+
+Three themes:
+
+Light
+
+Dark
+
+System
+
+The design must be authored independently for each.
+
+Do not simply invert colors.
+
+---
+
+# 71. Light Theme Personality
+
+Light mode:
+
+warm
+
+airy
+
+natural
+
+wellness-focused
+
+Primary visual:
+
+cream + sage + forest.
+
+---
+
+# 72. Dark Theme Personality
+
+Dark mode:
+
+premium
+
+focused
+
+strong
+
+cinematic
+
+Primary:
+
+deep forest + charcoal + muted green.
+
+Photography becomes more prominent.
+
+---
+
+# 73. System Theme
+
+Initial mode:
+
+System.
+
+Persist user preference.
+
+Avoid flash of wrong theme.
+
+---
+
+# 74. Iconography
+
+Use one icon family.
+
+Preferred:
+
+Lucide-style simple line icons.
+
+Stroke:
+
+1.75–2px.
+
+Avoid mixing:
+
+filled icons
+
+3D icons
+
+emoji
+
+random SVG styles.
+
+---
+
+# 75. Logo
+
+Logo should be minimal.
+
+Possible:
+
+SF monogram
+
+*
+
+Siddharth Fit
+
+or:
+
+S
+
+with abstract motion/strength mark.
+
+The logo should work:
+
+black
+
+white
+
+green
+
+glass
+
+favicon
+
+social avatar.
+
+---
+
+# 76. Photography Treatment
+
+Do not over-filter Siddharth's photos.
+
+Use:
+
+natural skin tones
+
+controlled contrast
+
+subtle color grading
+
+green environmental tint only where appropriate.
+
+Avoid:
+
+green skin
+
+heavy HDR
+
+excessive sharpening
+
+fake muscle enhancement.
+
+---
+
+# 77. Image Framing
+
+Use different shapes strategically.
+
+Hero:
+
+large asymmetric rounded rectangle.
+
+About:
+
+portrait vertical.
+
+Testimonials:
+
+circle.
+
+Certificates:
+
+document ratio.
+
+Training:
+
+wide editorial ratio.
+
+This creates visual rhythm.
+
+---
+
+# 78. Image Hover
+
+Desktop:
+
+scale 1.02–1.04.
+
+Mask remains fixed.
+
+Glass highlight moves.
+
+No aggressive zoom.
+
+---
+
+# 79. Achievements Visual Language
+
+Use metallic/glass micro-details.
+
+But avoid trophy overload.
+
+A small:
+
+year
+
+number
+
+credential
+
+is often more powerful than a huge trophy icon.
+
+---
+
+# 80. Metrics
+
+Use only meaningful metrics.
+
+Examples:
+
+Years Experience
+
+Clients Coached
+
+Certifications
+
+Training Focus
+
+Do not invent numbers.
+
+If data is unavailable:
+
+remove the metric.
+
+---
+
+# 81. UX Laws Applied
+
+The supplied Laws of UX material should explicitly inform the implementation.
+
+## Aesthetic-Usability Effect
+
+Premium visual quality should reinforce perceived usability.
+
+But aesthetics cannot replace readability.
+
+## Choice Overload
+
+Limit primary navigation and plan options.
+
+## Chunking
+
+Group information into:
+
+About
+
+Proof
+
+Services
+
+Plans
+
+Contact.
+
+## Cognitive Load
+
+Do not require visitors to decode the interface.
+
+## Doherty Threshold
+
+Interactions should feel immediate.
+
+## Fitts's Law
+
+Large primary CTAs.
+
+## Hick's Law
+
+Few important choices.
+
+## Jakob's Law
+
+Navigation should behave like familiar websites.
+
+## Law of Proximity
+
+Related information stays physically close.
+
+## Law of Similarity
+
+Cards and controls share visual grammar.
+
+## Law of Prägnanz
+
+Prefer simple layouts.
+
+## Mental Model
+
+Users should understand:
+
+trainer → proof → plans → contact.
+
+## Miller's Law
+
+Avoid showing excessive plan features simultaneously.
+
+## Paradox of the Active User
+
+The website must be usable immediately without instruction.
+
+## Peak-End Rule
+
+Hero and footer should be especially polished.
+
+## Selective Attention
+
+Use contrast to guide attention.
+
+## Serial Position Effect
+
+Place important navigation/CTAs at the beginning and end.
+
+## Von Restorff Effect
+
+One primary CTA should stand apart.
+
+## Zeigarnik Effect
+
+Incomplete/contact journeys can retain a clear next action:
+
+"Continue your conversation with Siddharth."
+
+---
+
+# 82. Design Tokens
+
+Create tokens for:
+
+```
+--background
+--foreground
+--surface
+--surface-glass
+--surface-glass-strong
+--primary
+--secondary
+--accent
+--muted
+--border
+--shadow
+--radius
+--blur
+--spacing
+--motion
+```
+
+Never scatter raw colors throughout components.
+
+---
+
+# 83. Glass Component Library
+
+Build reusable components:
+
+GlassPanel
+
+GlassCard
+
+GlassButton
+
+GlassInput
+
+GlassBadge
+
+GlassNav
+
+GlassDialog
+
+GlassSheet
+
+GlassTooltip
+
+GlassPill
+
+GlassStat
+
+GlassImageFrame
+
+GlassSection
+
+GlassDivider
+
+GlassTabs
+
+GlassTimeline
+
+GlassPricingCard
+
+GlassTestimonial
+
+GlassCertificateCard
+
+GlassSocialButton
+
+This is the actual design system.
+
+---
+
+# 84. GlassPanel
+
+Base component.
+
+Props:
+
+variant
+
+intensity
+
+radius
+
+interactive
+
+className
+
+The component should control:
+
+background
+
+border
+
+blur
+
+shadow
+
+highlight
+
+---
+
+# 85. GlassCard
+
+Used for:
+
+services
+
+achievements
+
+certificates
+
+testimonials
+
+plans.
+
+Variants:
+
+subtle
+
+default
+
+elevated
+
+featured.
+
+---
+
+# 86. GlassButton
+
+Variants:
+
+primary
+
+secondary
+
+ghost
+
+icon
+
+danger only if necessary.
+
+Sizes:
+
+sm
+
+md
+
+lg.
+
+---
+
+# 87. GlassInput
+
+States:
+
+default
+
+focus
+
+filled
+
+error
+
+disabled.
+
+The input itself should have enough opacity for text clarity.
+
+---
+
+# 88. GlassDialog
+
+Used for:
+
+search
+
+certificate preview
+
+mobile navigation
+
+future contact confirmations.
+
+Backdrop:
+
+dark translucent layer.
+
+Dialog:
+
+strong glass.
+
+---
+
+# 89. GlassSheet
+
+Mobile menu.
+
+Slides from top or bottom.
+
+Backdrop blur.
+
+Focus trap.
+
+Escape closes.
+
+---
+
+# 90. GlassTimeline
+
+Used for:
+
+achievements
+
+career progression
+
+training philosophy.
+
+It should not look like a generic SaaS timeline.
+
+Use large numbers and subtle glass nodes.
+
+---
+
+# 91. GlassPricingCard
+
+Must communicate:
+
+plan
+
+price
+
+period
+
+features
+
+CTA
+
+without looking like checkout.
+
+Use:
+
+"Discuss Plan"
+
+not:
+
+"Purchase."
+
+---
+
+# 92. GlassCertificateCard
+
+Certificate image is the dominant visual.
+
+Metadata secondary.
+
+Hover:
+
+glass reflection.
+
+Click:
+
+detail page.
+
+---
+
+# 93. GlassTestimonial
+
+Quote dominates.
+
+Person identity follows.
+
+Do not make decorative stars the dominant element.
+
+---
+
+# 94. GlassSocialButton
+
+Icon
+
+platform name
+
+optional handle
+
+hover highlight.
+
+On mobile:
+
+larger hit target.
+
+---
+
+# 95. Scroll Architecture
+
+Sections should reveal as the user moves.
+
+Animation:
+
+opacity
+
+translateY
+
+scale 0.98 → 1
+
+Duration:
+
+350–650ms.
+
+Use stagger only for small groups.
+
+Never stagger 20 cards individually.
+
+---
+
+# 96. Intersection Strategy
+
+Use IntersectionObserver.
+
+Do not attach expensive scroll listeners to everything.
+
+Only animate once where possible.
+
+Use CSS transforms.
+
+---
+
+# 97. Performance Rule
+
+The Liquid Glass effect must degrade gracefully.
+
+Priority:
+
+1. content
+2. readability
+3. interaction
+4. glass
+5. refraction
+6. 3D
+
+If performance suffers:
+
+remove refraction first.
+
+Then reduce blur.
+
+Then reduce parallax.
+
+Never sacrifice content.
+
+---
+
+# 98. Browser Fallback
+
+If:
+
+`backdrop-filter`
+
+is unavailable:
+
+use opaque/semi-opaque surface.
+
+The UI should still look intentional.
+
+Do not make glass support a hard dependency.
+
+---
+
+# 99. Image Loading
+
+Hero image:
+
+priority.
+
+Below-fold:
+
+lazy.
+
+Certificate gallery:
+
+lazy.
+
+Use:
+
+responsive sizes
+
+modern formats
+
+blur placeholders where beneficial.
+
+---
+
+# 100. Final Visual Composition
+
+The overall page should visually alternate:
+
+Photography
+
+↓
+
+Glass information
+
+↓
+
+Solid readable content
+
+↓
+
+Glass cards
+
+↓
+
+Photography
+
+↓
+
+Proof
+
+↓
+
+Glass pricing
+
+↓
+
+Dark contact ending
+
+This prevents "glass fatigue."
+
+---
+
+# 101. Glass Fatigue Rule
+
+Never put glass behind every element.
+
+Target:
+
+approximately 20–35% of visible UI surfaces using glass.
+
+Everything else should be:
+
+background
+
+photography
+
+typography
+
+solid surfaces
+
+negative space.
+
+---
+
+# 102. Visual Rhythm
+
+Use:
+
+large image
+
+small glass
+
+large text
+
+small metadata
+
+large image
+
+small cards
+
+large CTA.
+
+This creates visual rhythm.
+
+---
+
+# 103. Above-the-Fold Rule
+
+Within the first viewport the visitor should understand:
+
+Siddharth
+
+Personal Trainer
+
+Core value proposition
+
+Primary CTA
+
+Strong visual proof of identity.
+
+Do not hide the person behind effects.
+
+---
+
+# 104. First 5 Seconds
+
+Expected cognitive outcome:
+
+"This is Siddharth."
+
+"He is a fitness coach."
+
+"This looks professional."
+
+"I can contact him."
+
+If a visitor cannot answer these quickly, the hero is too decorative.
+
+---
+
+# 105. First Scroll
+
+The first scroll should establish:
+
+philosophy
+
+credentials
+
+specialization
+
+trust.
+
+---
+
+# 106. Middle of Page
+
+The middle should answer:
+
+"What does he actually offer?"
+
+Services
+
+Plans
+
+Testimonials
+
+Achievements.
+
+---
+
+# 107. Bottom of Page
+
+The visitor should have one clear action:
+
+Contact Siddharth.
+
+---
+
+# 108. Visual Don'ts
+
+Never use:
+
+neon green everywhere
+
+red/black bodybuilding template
+
+huge flames
+
+fake transformation numbers
+
+stock fitness models
+
+AI-generated Siddharth photographs
+
+fake testimonials
+
+fake certificates
+
+fake client results
+
+giant glowing text
+
+constant animations
+
+glass behind glass behind glass
+
+tiny low-contrast text
+
+overly rounded everything
+
+random 3D objects
+
+---
+
+# 109. Liquid Glass Don'ts
+
+Do not:
+
+blur text.
+
+refract text.
+
+make every card transparent.
+
+use glass over busy images without contrast testing.
+
+use glass solely because it looks fashionable.
+
+use WebGL for simple cards.
+
+use continuous specular animation.
+
+use heavy shadows.
+
+use rainbow glass.
+
+---
+
+# 110. Image/Glass Relationship
+
+The ideal relationship:
+
+Photo:
+
+high visual importance.
+
+Glass:
+
+organizes information.
+
+Typography:
+
+explains meaning.
+
+Motion:
+
+adds depth.
+
+Color:
+
+creates mood.
+
+CTA:
+
+drives action.
+
+Nothing should compete with the person.
+
+---
+
+# 111. Desktop Experience
+
+Desktop should feel cinematic.
+
+Hero:
+
+large.
+
+Photography:
+
+strong.
+
+Glass:
+
+floating.
+
+Navigation:
+
+minimal.
+
+Whitespace:
+
+generous.
+
+Effects:
+
+subtle.
+
+---
+
+# 112. Tablet Experience
+
+Reduce:
+
+parallax
+
+3D
+
+floating overlap.
+
+Maintain:
+
+hierarchy
+
+photography
+
+CTA
+
+glass.
+
+---
+
+# 113. Mobile Experience
+
+Mobile should feel like a premium fitness profile.
+
+Priorities:
+
+portrait
+
+headline
+
+CTA
+
+proof
+
+plans
+
+contact.
+
+Remove unnecessary decorative effects.
+
+---
+
+# 114. Accessibility Override
+
+If accessibility settings require:
+
+higher contrast
+
+less transparency
+
+less motion
+
+the site should automatically become more solid and readable.
+
+The brand identity must survive accessibility settings.
+
+---
+
+# 115. UX Testing Questions
+
+Test with real users:
+
+1. Who is Siddharth?
+2. What does he offer?
+3. Can you find his credentials?
+4. Can you find testimonials?
+5. Can you understand the plans?
+6. Can you estimate pricing?
+7. How would you contact him?
+8. Did anything feel confusing?
+9. Did anything feel visually distracting?
+10. Did the glass make anything harder to read?
+
+If users struggle with any answer, simplify.
+
+---
+
+# 116. Final Design Formula
+
+The final visual formula:
+
+**40% human photography**
+
+**25% negative space / solid surfaces**
+
+**20% Liquid Glass**
+
+**10% typography and editorial structure**
+
+**5% motion / 3D / special effects**
+
+This prevents the technology from overpowering the brand.
+
+---
+
+# 117. Final Brand Statement
+
+The interface should communicate:
+
+**Strength is visible.
+Discipline is structured.
+Progress is personal.**
+
+The website is not selling a payment transaction.
+
+It is selling trust in Siddharth.
+
+Therefore the most important UI component is not the glass card.
+
+It is Siddharth himself.
+
+The Liquid Glass system exists to frame that trust.

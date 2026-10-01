@@ -3,15 +3,15 @@ import { cn } from "@/lib/utils";
 
 function Card({
   className,
-  clay = true,
+  glass = true,
   ...props
-}: React.ComponentProps<"div"> & { clay?: boolean }) {
+}: React.ComponentProps<"div"> & { glass?: boolean; neu?: boolean; clay?: boolean }) {
   return (
     <div
       data-slot="card"
       className={cn(
-        "flex flex-col rounded-3xl bg-card text-card-foreground border border-border/70 transition-all duration-300",
-        clay && "clay-card clay-card-hover",
+        "flex flex-col rounded-3xl text-foreground transition-all duration-300",
+        glass ? "liquid-glass hover:-translate-y-1 hover:border-primary/30" : "bg-card border border-border",
         className
       )}
       {...props}
@@ -31,7 +31,7 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
 
 function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
-    <div
+    <h3
       data-slot="card-title"
       className={cn("font-heading text-xl sm:text-2xl font-bold tracking-tight text-foreground", className)}
       {...props}
@@ -41,7 +41,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
 
 function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   return (
-    <div
+    <p
       data-slot="card-description"
       className={cn("text-sm sm:text-base text-muted-foreground leading-relaxed", className)}
       {...props}

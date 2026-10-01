@@ -8,6 +8,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PlanCard } from "@/components/plans/PlanCard";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { GlassButton } from "@/components/ui/glass/GlassButton";
 
 export const metadata: Metadata = {
   title: "Coaching Plans",
@@ -58,23 +59,23 @@ export default function PlansPage() {
           ))}
         </div>
 
-        {/* Custom Coaching Highlight */}
-        <div className="clay-card p-10 sm:p-14 rounded-3xl bg-gradient-to-r from-card via-card to-secondary/10 border-2 border-primary/20 mb-20">
+        {/* Section 39: Custom Coaching Highlight */}
+        <div className="liquid-glass-strong p-8 sm:p-14 rounded-3xl border border-sage/40 dark:border-primary/40 shadow-2xl mb-20">
           <div className="max-w-3xl">
-            <span className="text-xs uppercase tracking-widest font-bold text-primary block mb-2">
+            <span className="text-xs uppercase font-mono font-bold tracking-widest text-primary dark:text-sage block mb-2">
               Bespoke Architecture
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-3">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground font-heading mb-3">
               Need a completely personalized schedule or hybrid protocol?
             </h2>
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-6">
               Siddharth regularly designs custom hybrid protocols combining monthly in-person biomechanical audits with weekly asynchronous digital oversight for founders, athletes, and traveling professionals.
             </p>
-            <Button asChild size="lg" className="rounded-2xl">
+            <GlassButton asChild variant="primary" size="lg">
               <Link href="/contact?plan=Custom%20Coaching">
                 Discuss a Custom Arrangement &rarr;
               </Link>
-            </Button>
+            </GlassButton>
           </div>
         </div>
 

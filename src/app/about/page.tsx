@@ -1,176 +1,202 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ArrowRight, ShieldCheck, Flame, Award } from "lucide-react";
 import { profile, siteConfig } from "@/content/site";
 import { Container } from "@/components/layout/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { CSS3DObject } from "@/components/effects/CSS3DObject";
+import { GlassImageFrame, GlassSection } from "@/components/ui/glass/GlassImageFrame";
+import { GlassButton } from "@/components/ui/glass/GlassButton";
+import { GlassBadge } from "@/components/ui/glass/GlassBadge";
+import { PhilosophySequence } from "@/components/ui/glass/GlassTimeline";
 import { StructuredData } from "@/components/seo/StructuredData";
+import { ScrollReveal } from "@/components/effects/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "About Siddharth",
-  description: "Learn about Siddharth's training philosophy, 7+ years of coaching background, and evidence-based biomechanical methodology.",
+  description:
+    "Learn about Siddharth's training philosophy, 7+ years of coaching background, and evidence-based biomechanical methodology.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
     title: "About Siddharth | Siddharth Fit",
-    description: "Learn about Siddharth's training philosophy, 7+ years of coaching background, and evidence-based biomechanical methodology.",
+    description:
+      "Learn about Siddharth's training philosophy, 7+ years of coaching background, and evidence-based biomechanical methodology.",
     url: `${siteConfig.url}/about`,
     type: "profile",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "About Siddharth | Siddharth Fit",
-    description: "Evidence-based strength coaching and sustainable habit periodization.",
   },
 };
 
 export default function AboutPage() {
+  const philosophySteps = [
+    {
+      step: "01",
+      title: "Assess",
+      description: "Joint kinematics, mobility deficits, prior injuries, and lifestyle constraints.",
+    },
+    {
+      step: "02",
+      title: "Plan",
+      description: "Custom phased periodization with data-driven progressive overload curves.",
+    },
+    {
+      step: "03",
+      title: "Train",
+      description: "Biomechanical precision, strict movement cues, and form audits on every lift.",
+    },
+    {
+      step: "04",
+      title: "Adapt",
+      description: "Weekly review cadence adjusting volume, sleep hygiene, and macronutrients.",
+    },
+    {
+      step: "05",
+      title: "Progress",
+      description: "Sustained strength milestones, physical recomposition, and long-term autonomy.",
+    },
+  ];
+
   return (
-    <div className="py-16 md:py-24">
+    <div className="py-12 md:py-20 flex flex-col gap-16">
       <StructuredData type="person" />
       <Container>
-        {/* Page Hero */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+        {/* Section 23: About Page Hero - Asymmetric Composition */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
           <div className="lg:col-span-7 flex flex-col gap-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-secondary/15 text-primary text-xs font-semibold uppercase tracking-wider w-fit">
-              <span>Personal Trainer &amp; Coach</span>
-            </div>
+            <GlassBadge variant="sage" size="md" className="w-fit">
+              <span>Certified Coach &amp; Competitive Athlete</span>
+            </GlassBadge>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground text-balance">
-              Building Physical Strength &amp; Mental Discipline
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground font-heading text-balance leading-tight">
+              Evidence-based strength. <br />
+              <span className="text-primary dark:text-sage">Built for longevity.</span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-balance">
               {profile.tagline}
             </p>
 
+            <p className="text-base text-muted-foreground leading-relaxed">
+              {profile.bio}
+            </p>
+
             <div className="flex flex-wrap gap-4 pt-2">
-              <Button asChild size="lg" className="rounded-2xl shadow-md">
-                <Link href="/contact">Talk to Siddharth</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="rounded-2xl border-primary/30 text-primary">
-                <Link href="/plans">View Coaching Plans</Link>
-              </Button>
+              <GlassButton asChild variant="primary" size="lg">
+                <Link href="/contact">
+                  <span>Talk to Siddharth</span>
+                  <ArrowRight className="size-4 ml-1" />
+                </Link>
+              </GlassButton>
+              <GlassButton asChild variant="secondary" size="lg">
+                <Link href="/plans">Explore Coaching Plans</Link>
+              </GlassButton>
             </div>
           </div>
 
-          {/* Visual Presentation Card */}
+          {/* Siddharth's Portrait Frame (Section 10 & 23) */}
           <div className="lg:col-span-5">
-            <Card className="p-8 aspect-square flex flex-col items-center justify-between text-center relative overflow-hidden bg-gradient-to-b from-card via-card to-primary/5 border-2 border-border/80">
-              <div className="w-full flex items-center justify-between text-xs font-mono text-muted-foreground">
-                <span className="font-bold text-primary">SIDDHARTH FIT</span>
-                <span>EST. 2018</span>
-              </div>
-
-              <div className="my-auto relative flex flex-col items-center">
-                <CSS3DObject className="scale-110" />
-                <span className="text-xs uppercase tracking-widest font-bold text-muted-foreground mt-4 block">
-                  [Portrait Placeholder]
-                </span>
-              </div>
-
-              <div className="w-full py-2.5 px-4 rounded-xl bg-muted/50 border border-border/60 text-xs font-medium text-foreground flex items-center justify-between">
-                <span>7+ Years Experience</span>
-                <span className="text-primary font-bold">50+ Athletes Coached</span>
-              </div>
-            </Card>
+            <GlassImageFrame
+              src={profile.images.hero}
+              alt="Siddharth - Strength & Conditioning Coach"
+              aspectRatio="portrait"
+              className="shadow-2xl"
+              overlayBadge={
+                <div className="liquid-glass-strong rounded-2xl p-4 border border-white/60 dark:border-white/15">
+                  <div className="flex items-center justify-between text-xs font-semibold">
+                    <span className="text-foreground">Siddharth</span>
+                    <span className="text-primary dark:text-sage font-mono">7+ Yrs Coaching</span>
+                  </div>
+                </div>
+              }
+            />
           </div>
         </div>
 
-        {/* Philosophy & Approach In-Depth */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-          <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-extrabold text-foreground tracking-tight">
-              The Coaching Philosophy
+        {/* Philosophy & Approach Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20">
+          <div className="liquid-glass-strong p-8 sm:p-10 rounded-3xl flex flex-col gap-5 border border-white/60 dark:border-white/15">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground font-heading tracking-tight">
+              The Coaching Ethos
             </h2>
-            <div className="prose prose-lg text-muted-foreground leading-relaxed space-y-4">
+            <div className="text-muted-foreground leading-relaxed space-y-4 text-sm sm:text-base">
               <p>{profile.philosophy}</p>
               <p>
-                Too many lifters get caught in endless cycles of burnout, aggressive deficits, and joint pain caused by copying arbitrary routines off social media. My system is built around understanding your individual lever lengths, prior injuries, and weekly schedule to construct progressive training you genuinely enjoy.
+                Too many lifters get trapped in extreme 12-week cycles of burnout, aggressive caloric deficits, and chronic joint impingement caused by copying generic routines from social media influencers.
               </p>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-extrabold text-foreground tracking-tight">
-              Background &amp; Credentials
-            </h2>
-            <div className="prose prose-lg text-muted-foreground leading-relaxed space-y-4">
-              <p>{profile.bio}</p>
               <p>
-                From preparing competitive powerlifters for state and national podiums to helping desk-bound remote professionals fix chronic thoracic stiffness, the goal is always identical: autonomy, resilience, and lifelong physical capability.
+                My methodology is rooted in movement kinematics, joint moment arms, and sustainable lifestyle design. We optimize lifting form to your skeleton, not the other way around.
               </p>
+            </div>
+          </div>
+
+          <div className="liquid-glass p-8 sm:p-10 rounded-3xl flex flex-col gap-6">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground font-heading tracking-tight">
+              Specialized Competencies
+            </h2>
+            <div className="space-y-3.5">
+              {profile.specialties.map((spec, idx) => (
+                <div key={idx} className="flex items-center gap-3">
+                  <div className="size-6 rounded-full bg-primary/10 text-primary dark:text-sage flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="size-4" />
+                  </div>
+                  <span className="text-sm font-semibold text-foreground/90">{spec}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-4 border-t border-border/40 grid grid-cols-3 gap-4 text-center">
+              <div>
+                <span className="text-2xl font-black font-heading text-primary dark:text-sage">7+</span>
+                <span className="text-[11px] block uppercase font-bold text-muted-foreground">Years</span>
+              </div>
+              <div>
+                <span className="text-2xl font-black font-heading text-foreground">500+</span>
+                <span className="text-[11px] block uppercase font-bold text-muted-foreground">Clients</span>
+              </div>
+              <div>
+                <span className="text-2xl font-black font-heading text-primary dark:text-sage">565kg</span>
+                <span className="text-[11px] block uppercase font-bold text-muted-foreground">Total</span>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Specialties Grid */}
+        {/* 5-Step Narrative Sequence (Section 25) */}
         <div className="mb-20">
-          <SectionHeading
-            eyebrow="Core Competencies"
-            title="Areas of Specialization"
-            description="Deep practical and theoretical expertise applied across every client program."
-          />
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {profile.specialties.map((specialty, idx) => (
-              <Card key={idx} className="p-6 flex items-start gap-4">
-                <div className="size-10 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                  <CheckCircle2 className="size-5" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-base text-foreground mb-1">{specialty}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    Systematic protocols tested through hundreds of hours of hands-on client instruction.
-                  </p>
-                </div>
-              </Card>
-            ))}
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="text-xs uppercase font-bold tracking-widest text-primary dark:text-sage block mb-1">
+              Methodology
+            </span>
+            <h2 className="text-3xl font-extrabold font-heading text-foreground tracking-tight">
+              How Every Client Progresses
+            </h2>
           </div>
+          <PhilosophySequence steps={philosophySteps} />
         </div>
 
-        {/* 4 Pillars of Approach */}
+        {/* Coaching Image Frame Interlude */}
         <div className="mb-20">
-          <SectionHeading
-            eyebrow="Systematic Methodology"
-            title="The 4 Pillars of the Siddharth Fit System"
-            description="How every client journey is structured from day one."
+          <GlassImageFrame
+            src={profile.images.coaching}
+            alt="Siddharth coaching a client"
+            aspectRatio="editorial"
+            className="shadow-2xl"
           />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {profile.approachCategories.map((cat, idx) => (
-              <Card key={idx} className="p-8 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="size-8 rounded-full bg-primary/15 text-primary text-xs font-black flex items-center justify-center">
-                      0{idx + 1}
-                    </span>
-                    <h3 className="text-xl font-bold text-foreground">{cat.title}</h3>
-                  </div>
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                    {cat.description}
-                  </p>
-                </div>
-              </Card>
-            ))}
-          </div>
         </div>
 
-        {/* CTA Banner */}
-        <div className="clay-card p-10 sm:p-14 rounded-3xl bg-secondary/15 border border-secondary/30 text-center flex flex-col items-center gap-4">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground">
-            Have questions about how this approach applies to your body?
+        {/* CTA Card */}
+        <div className="liquid-glass-strong rounded-3xl p-8 sm:p-12 text-center max-w-3xl mx-auto border border-sage/40 dark:border-primary/40 shadow-xl">
+          <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-foreground tracking-tight mb-3">
+            Start Your Journey with Siddharth
           </h2>
-          <p className="text-muted-foreground text-sm max-w-lg">
-            No sales scripts or automated upsells. Send Siddharth an email detailing your background and get candid guidance.
+          <p className="text-sm sm:text-base text-muted-foreground max-w-xl mx-auto mb-6">
+            Inquire about remote or in-person personal coaching. We will discuss your goals, training history, and build a program tailored to you.
           </p>
-          <Button asChild size="lg" className="rounded-2xl px-8 shadow-sm">
-            <Link href="/contact">Start Conversation With Siddharth</Link>
-          </Button>
+          <GlassButton asChild variant="primary" size="lg">
+            <Link href="/contact">
+              <span>Talk to Siddharth</span>
+              <ArrowRight className="size-4 ml-1" />
+            </Link>
+          </GlassButton>
         </div>
       </Container>
     </div>

@@ -1,26 +1,29 @@
 import Link from "next/link";
-import { Compass, Home, Mail, Search } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Home, Search, Target, Mail } from "lucide-react";
+import { GlassButton } from "@/components/ui/glass/GlassButton";
+import { GlassDumbbell } from "@/components/ui/glass/GlassDumbbell";
 import { Container } from "@/components/layout/Container";
 
 export default function NotFound() {
   return (
-    <div className="py-20 md:py-32 my-auto">
+    <div className="py-16 md:py-28 my-auto">
       <Container size="narrow">
-        <div className="clay-card p-10 sm:p-16 rounded-3xl bg-card border border-border/80 text-center flex flex-col items-center gap-6 shadow-xl">
-          <div className="size-16 rounded-3xl bg-primary/10 text-primary flex items-center justify-center clay-pill border border-primary/20">
-            <Compass className="size-8" />
+        <div className="liquid-glass-strong p-8 sm:p-14 rounded-3xl border border-white/60 dark:border-white/15 text-center flex flex-col items-center gap-6 shadow-2xl">
+          {/* Section 47 Visual: subtle 3D glass dumbbell */}
+          <div className="scale-90 sm:scale-100 my-2">
+            <GlassDumbbell />
           </div>
 
-          <div className="flex flex-col gap-2">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-muted-foreground">
-              Error 404
+          <div className="flex flex-col gap-2 max-w-md">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-primary dark:text-sage">
+              404 • Set Interrupted
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-foreground tracking-tight">
-              Page not found
+            {/* Section 47 Fitness Metaphor Headline */}
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-foreground font-heading tracking-tight">
+              Looks like this set got interrupted.
             </h1>
-            <p className="text-sm sm:text-base text-muted-foreground max-w-md mx-auto leading-relaxed mt-1">
-              The page you are looking for has been moved or doesn&apos;t exist. Let&apos;s get you back on track.
+            <p className="text-base text-muted-foreground leading-relaxed mt-1">
+              Let&apos;s get you back on track. The page or program you requested doesn&apos;t exist or has moved.
             </p>
           </div>
 
@@ -28,38 +31,38 @@ export default function NotFound() {
           <div className="w-full max-w-md">
             <Link
               href="/search"
-              className="flex items-center justify-between px-4 py-3 rounded-2xl bg-card border border-border/80 text-sm text-muted-foreground hover:text-foreground transition-all group clay-pill"
+              className="flex items-center justify-between px-4 py-3 rounded-2xl liquid-glass border border-white/40 dark:border-white/10 text-sm text-muted-foreground hover:text-foreground transition-all"
             >
               <div className="flex items-center gap-2.5">
-                <Search className="size-4 text-primary" />
-                <span>Search plans, credentials, or stories...</span>
+                <Search className="size-4 text-primary dark:text-sage" />
+                <span>Search plans, credentials, or proof...</span>
               </div>
-              <kbd className="px-2 py-0.5 text-xs font-mono bg-muted/60 rounded-lg border border-border/60">
+              <kbd className="px-2 py-0.5 text-xs font-mono bg-white/40 dark:bg-black/40 rounded-lg border border-border/60">
                 ⌘K
               </kbd>
             </Link>
           </div>
 
-          {/* Recovery Links */}
+          {/* Recovery Links (Section 47: Home, Plans, Search, Contact) */}
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-            <Button asChild size="lg" className="rounded-2xl gap-2">
+            <GlassButton asChild variant="primary" size="default">
               <Link href="/">
-                <Home className="size-4" />
-                <span>Back to Home</span>
+                <Home className="size-4 mr-1.5" />
+                <span>Home</span>
               </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-2xl gap-2">
+            </GlassButton>
+            <GlassButton asChild variant="secondary" size="default">
               <Link href="/plans">
-                <Compass className="size-4" />
-                <span>View Coaching Plans</span>
+                <Target className="size-4 mr-1.5" />
+                <span>Plans</span>
               </Link>
-            </Button>
-            <Button asChild variant="ghost" size="lg" className="rounded-2xl gap-2">
+            </GlassButton>
+            <GlassButton asChild variant="secondary" size="default">
               <Link href="/contact">
-                <Mail className="size-4" />
-                <span>Contact Siddharth</span>
+                <Mail className="size-4 mr-1.5" />
+                <span>Contact</span>
               </Link>
-            </Button>
+            </GlassButton>
           </div>
         </div>
       </Container>

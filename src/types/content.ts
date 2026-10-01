@@ -69,6 +69,11 @@ export type TrainerProfile = {
   experienceYears: number;
   specialties: string[];
   approachCategories: ApproachCategory[];
+  images: {
+    hero: string;
+    coaching: string;
+    strength: string;
+  };
 };
 
 export type SiteConfig = {

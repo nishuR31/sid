@@ -223,7 +223,7 @@ function SearchContent() {
   return (
     <div className="max-w-4xl mx-auto">
       {/* Search Input Box */}
-      <div className="clay-card p-3 sm:p-4 rounded-3xl bg-card border border-border/80 shadow-lg flex items-center gap-3 mb-3">
+      <div className="liquid-glass p-3 sm:p-4 rounded-3xl bg-card border border-border/80 shadow-md flex items-center gap-3 mb-3">
         <Search className="size-6 text-muted-foreground shrink-0 ml-2" />
         <input
           type="text"
@@ -236,7 +236,7 @@ function SearchContent() {
         {query && (
           <button
             onClick={() => setQuery("")}
-            className="p-1.5 rounded-xl hover:bg-muted text-muted-foreground hover:text-foreground cursor-pointer clay-pill transition-colors"
+            className="p-1.5 rounded-xl hover:bg-card text-muted-foreground hover:text-foreground cursor-pointer glass-pill active:neu-pressed transition-colors"
             aria-label="Clear search query"
           >
             <X className="size-5" />
@@ -254,7 +254,7 @@ function SearchContent() {
             key={chip.label}
             type="button"
             onClick={() => setQuery(chip.query)}
-            className="px-3 py-1 rounded-full text-xs font-semibold bg-secondary/15 hover:bg-secondary/30 text-foreground border border-border/60 hover:border-primary/40 clay-pill transition-all cursor-pointer active:scale-95"
+            className="px-3 py-1 rounded-full text-xs font-semibold bg-card hover:bg-card/80 text-foreground border border-border/60 hover:border-primary/40 glass-pill transition-all cursor-pointer active:neu-pressed"
           >
             {chip.label}
           </button>
@@ -269,10 +269,10 @@ function SearchContent() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-1.5 rounded-2xl text-xs sm:text-sm font-semibold transition-all cursor-pointer clay-pill ${
+              className={`px-4 py-1.5 rounded-2xl text-xs sm:text-sm font-semibold transition-all cursor-pointer glass-pill ${
                 isSelected
-                  ? "bg-primary text-primary-foreground font-bold shadow-xs border-transparent scale-105"
-                  : "bg-card border border-border/80 text-muted-foreground hover:text-foreground hover:bg-muted"
+                  ? "bg-primary text-primary-foreground font-bold shadow-md border-transparent scale-105 active:neu-pressed"
+                  : "bg-card border border-border/80 text-muted-foreground hover:text-foreground active:neu-pressed"
               }`}
             >
               {cat === "All" ? "All Results" : cat + "s"}
@@ -289,7 +289,7 @@ function SearchContent() {
       {/* Results List */}
       <div className="flex flex-col gap-3">
         {filteredItems.length === 0 ? (
-          <div className="p-12 text-center rounded-3xl bg-card border border-border/70 text-muted-foreground flex flex-col items-center gap-2">
+          <div className="p-12 text-center rounded-3xl bg-card border border-border/70 text-muted-foreground flex flex-col items-center gap-2 liquid-glass">
             <Compass className="size-10 text-muted-foreground/50 mb-1" />
             <p className="text-base font-semibold text-foreground">No matches found for &ldquo;{query}&rdquo;</p>
             <p className="text-sm">Try broader keywords or reset the category filter.</p>
@@ -299,10 +299,10 @@ function SearchContent() {
             <Link
               key={item.id}
               href={item.url}
-              className="clay-card p-4 sm:p-5 rounded-3xl bg-card border border-border/80 clay-card-hover group flex items-start justify-between gap-4 transition-all"
+              className="liquid-glass p-4 sm:p-5 rounded-3xl bg-card border border-border/80 liquid-glass-hover group flex items-start justify-between gap-4 transition-all"
             >
               <div className="flex items-start gap-4 min-w-0">
-                <div className="p-2.5 rounded-2xl bg-card border border-border/80 shrink-0 clay-pill mt-0.5">
+                <div className="p-2.5 rounded-2xl bg-card border border-border/80 shrink-0 glass-pill mt-0.5">
                   {getCategoryIcon(item.category)}
                 </div>
                 <div className="flex flex-col gap-1 min-w-0">

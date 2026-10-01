@@ -7,142 +7,164 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --color-surface: var(--surface);
+  --color-surface-glass: var(--surface-glass);
+  --color-surface-glass-strong: var(--surface-glass-strong);
+  
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+  --font-heading: var(--font-geist-sans), system-ui, sans-serif;
+  
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
+  --color-border-glass: var(--border-glass);
   --color-destructive: var(--destructive);
+  
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
+  
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
+  
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
+  
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
+  
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  
   --color-highlight: var(--highlight);
+  --color-sage: var(--sage);
   
   --radius-sm: 0.625rem;
   --radius-md: 1rem;
   --radius-lg: 1.5rem;
   --radius-xl: 2rem;
   --radius-2xl: 2.5rem;
+  --radius-full: 9999px;
 }
 
 :root {
-  /* Light Theme: Crisp modern porcelain canvas with deep slate text */
-  --background: #F8FAFC; 
-  --foreground: #0F172A; /* Deep slate-900 for ultra-clear readability */
-  --card: #FFFFFF; /* Pure white card for real tactile clay pop */
-  --card-foreground: #0F172A;
-  --popover: #FFFFFF;
-  --popover-foreground: #0F172A;
+  /* =========================================================================
+     LIQUID GLASS × CALM STRENGTH × FOREST & SAGE (LIGHT THEME)
+     Section 5 Specification
+     ========================================================================= */
+  --background: #F2F5F0;
+  --surface: #FFFFFF;
+  --surface-glass: rgba(255, 255, 255, 0.48);
+  --surface-glass-strong: rgba(255, 255, 255, 0.68);
   
-  --primary: #059669; /* Vibrant athletic emerald */
-  --primary-foreground: #FFFFFF;
-  --primary-light: #10B981;
+  --primary: #173C32;          /* Deep Forest Green */
+  --primary-foreground: #F2F5F0;
+  --primary-light: #2D5E50;
   
-  --secondary: #F1F5F9; /* Subtle slate surface */
-  --secondary-foreground: #0F172A;
+  --secondary: #477A68;        /* Forest Slate */
+  --secondary-foreground: #FFFFFF;
   
-  --muted: #F1F5F9;
-  --muted-foreground: #475569; /* High readability neutral slate */
+  --sage: #91B6A4;
+  --accent: #B7D8C7;           /* Sage Accent */
+  --accent-foreground: #10231E;
   
-  --accent: #0D9488; /* Fresh teal */
-  --accent-foreground: #FFFFFF;
+  --foreground: #10231E;       /* High Contrast Deep Charcoal Green */
+  --card: rgba(255, 255, 255, 0.55);
+  --card-foreground: #10231E;
   
-  --highlight: #D97706; /* Refined amber */
-  --destructive: #DC2626;
+  --popover: rgba(255, 255, 255, 0.85);
+  --popover-foreground: #10231E;
   
-  --border: #E2E8F0; /* Clean distinct card separation */
-  --input: #E2E8F0;
-  --ring: #059669;
+  --muted: #E2E8DF;
+  --muted-foreground: #5C6B65;  /* Subtle forest charcoal */
+  
+  --highlight: #D8C89E;        /* Warm gold highlight */
+  --destructive: #B91C1C;
+  
+  --border: rgba(255, 255, 255, 0.65);
+  --border-glass: rgba(255, 255, 255, 0.65);
+  --glass-edge: rgba(255, 255, 255, 0.7);
+  --input: rgba(255, 255, 255, 0.65);
+  --ring: #173C32;
 
-  --radius: 1rem;
+  --radius: 1.25rem;
+  --blur: 16px;
+  --blur-strong: 28px;
+  --spacing: 1.5rem;
+  --motion: 200ms cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Real Claymorphic 3D Elevation Tokens (Light Mode) */
-  --clay-shadow: 
-    12px 16px 28px -4px rgba(15, 23, 42, 0.08),
-    -6px -6px 18px 0px rgba(255, 255, 255, 0.95),
-    inset 2px 2px 4px 0px rgba(255, 255, 255, 1),
-    inset -2px -2px 4px 0px rgba(15, 23, 42, 0.05);
-    
-  --clay-shadow-hover: 
-    16px 24px 36px -6px rgba(15, 23, 42, 0.12),
-    -8px -8px 24px 0px rgba(255, 255, 255, 1),
-    inset 3px 3px 5px 0px rgba(255, 255, 255, 1),
-    inset -3px -3px 5px 0px rgba(15, 23, 42, 0.07);
+  /* Dual Layer Soft Shadows (Section 61) */
+  --shadow: 
+    0 8px 32px 0 rgba(23, 60, 50, 0.08),
+    0 2px 8px 0 rgba(16, 35, 30, 0.04);
+  
+  --shadow-hover: 
+    0 16px 40px 0 rgba(23, 60, 50, 0.12),
+    0 4px 12px 0 rgba(16, 35, 30, 0.06);
 
-  --clay-pill-shadow:
-    6px 8px 16px -2px rgba(15, 23, 42, 0.08),
-    -3px -3px 8px 0px rgba(255, 255, 255, 0.9),
-    inset 1.5px 1.5px 2px 0px rgba(255, 255, 255, 1),
-    inset -1px -1px 2px 0px rgba(15, 23, 42, 0.04);
+  --shadow-focus:
+    0 20px 48px 0 rgba(23, 60, 50, 0.16),
+    0 0 0 2px var(--primary);
 
-  --clay-input-shadow:
-    inset 2px 2px 4px 0px rgba(15, 23, 42, 0.06),
-    inset -2px -2px 4px 0px rgba(255, 255, 255, 0.95),
-    0px 1px 2px 0px rgba(0, 0, 0, 0.04);
+  --inner-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .dark {
-  /* Dark Theme: True sleek neutral obsidian/charcoal (NOT green mud!), with crisp white typography */
-  --background: #090A0C; /* Deep sleek obsidian */
-  --foreground: #F8FAFC; /* Crisp brilliant off-white for zero eye strain */
-  --card: #121418; /* Clean raised dark obsidian surface */
-  --card-foreground: #F8FAFC;
-  --popover: #121418;
-  --popover-foreground: #F8FAFC;
+  /* =========================================================================
+     LIQUID GLASS × CINEMATIC OBSIDIAN FOREST (DARK THEME)
+     Section 6 Specification
+     ========================================================================= */
+  --background: #07120F;
+  --surface: #0D1D18;
+  --surface-glass: rgba(20, 40, 34, 0.52);
+  --surface-glass-strong: rgba(27, 54, 46, 0.72);
   
-  --primary: #10B981; /* High-energy athletic emerald */
-  --primary-foreground: #042F1A;
-  --primary-light: #34D399;
+  --primary: #76B99D;          /* Luminous Emerald Sage */
+  --primary-foreground: #07120F;
+  --primary-light: #9BC9B1;
   
-  --secondary: #1E232B; /* Refined charcoal slate */
-  --secondary-foreground: #F1F5F9;
+  --secondary: #1E3D34;
+  --secondary-foreground: #F2F6F3;
   
-  --muted: #181B22;
-  --muted-foreground: #94A3B8; /* Slate-400: High contrast, instantly legible */
+  --sage: #9BC9B1;
+  --accent: #9BC9B1;
+  --accent-foreground: #07120F;
   
-  --accent: #14B8A6;
-  --accent-foreground: #042F1A;
+  --foreground: #F2F6F3;       /* Crisp glass white */
+  --card: rgba(20, 40, 34, 0.52);
+  --card-foreground: #F2F6F3;
   
-  --highlight: #F59E0B;
+  --popover: rgba(13, 29, 24, 0.88);
+  --popover-foreground: #F2F6F3;
+  
+  --muted: #0D1D18;
+  --muted-foreground: #AABBB3;  /* Muted sage-grey */
+  
+  --highlight: #D8C89E;        /* Warm gold highlight */
   --destructive: #EF4444;
   
-  --border: #262B35; /* Clean charcoal border */
-  --input: #262B35;
-  --ring: #10B981;
+  --border: rgba(255, 255, 255, 0.12);
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --glass-edge: rgba(255, 255, 255, 0.12);
+  --input: rgba(13, 29, 24, 0.75);
+  --ring: #76B99D;
 
-  /* Real Claymorphic 3D Elevation Tokens (Dark Mode) */
-  --clay-shadow: 
-    14px 18px 36px -4px rgba(0, 0, 0, 0.8),
-    -4px -4px 14px 0px rgba(255, 255, 255, 0.04),
-    inset 1.5px 1.5px 2.5px 0px rgba(255, 255, 255, 0.15),
-    inset -2px -2px 5px 0px rgba(0, 0, 0, 0.7);
-    
-  --clay-shadow-hover: 
-    20px 26px 44px -6px rgba(0, 0, 0, 0.95),
-    -6px -6px 20px 0px rgba(255, 255, 255, 0.07),
-    inset 2px 2px 3.5px 0px rgba(255, 255, 255, 0.22),
-    inset -3px -3px 6px 0px rgba(0, 0, 0, 0.85);
+  --shadow: 
+    0 12px 36px 0 rgba(0, 0, 0, 0.55),
+    0 0 1px 1px rgba(255, 255, 255, 0.06);
 
-  --clay-pill-shadow:
-    6px 8px 18px -2px rgba(0, 0, 0, 0.75),
-    -2px -2px 6px 0px rgba(255, 255, 255, 0.05),
-    inset 1.5px 1.5px 2px 0px rgba(255, 255, 255, 0.2),
-    inset -1.5px -1.5px 3px 0px rgba(0, 0, 0, 0.6);
+  --shadow-hover: 
+    0 18px 48px 0 rgba(0, 0, 0, 0.7),
+    0 0 2px 1px rgba(118, 185, 157, 0.25);
 
-  --clay-input-shadow:
-    inset 2px 2px 5px 0px rgba(0, 0, 0, 0.75),
-    inset -1px -1px 3px 0px rgba(255, 255, 255, 0.06),
-    0px 1px 2px 0px rgba(0, 0, 0, 0.4);
+  --shadow-focus:
+    0 24px 56px 0 rgba(0, 0, 0, 0.8),
+    0 0 0 2px var(--primary);
+
+  --inner-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 @layer base {
@@ -150,83 +172,280 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased relative min-h-screen;
+    background-color: var(--background);
+    color: var(--foreground);
   }
   html {
     @apply font-sans scroll-smooth;
   }
 }
 
-/* Tactile Claymorphism Classes */
-.clay-card {
-  background-color: var(--card);
-  border: 1px solid var(--border);
-  box-shadow: var(--clay-shadow);
-  border-radius: 1.5rem;
-  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1), border-color 200ms ease;
+/* =========================================================================
+   LIQUID GLASS ENGINE (Sections 2, 3, 19, 55, 58-62, 82-84)
+   ========================================================================= */
+
+/* Default Liquid Glass Material (Tier 1) */
+.liquid-glass {
+  background-color: var(--surface-glass);
+  backdrop-filter: blur(var(--blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--blur)) saturate(160%);
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow), var(--inner-highlight);
+  border-radius: var(--radius);
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 200ms ease,
+              border-color 200ms ease;
+  position: relative;
 }
 
-.clay-card:hover, .clay-card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--clay-shadow-hover);
+/* Strong Focus Liquid Glass (Layer 2) */
+.liquid-glass-strong {
+  background-color: var(--surface-glass-strong);
+  backdrop-filter: blur(var(--blur-strong)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--blur-strong)) saturate(180%);
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow), var(--inner-highlight);
+  border-radius: var(--radius);
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
 }
 
-.clay-pill {
-  box-shadow: var(--clay-pill-shadow);
+/* Subtle Layer 0/1 Glass */
+.liquid-glass-subtle {
+  background-color: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
-.clay-input {
-  box-shadow: var(--clay-input-shadow);
-  border-radius: 1rem;
-  transition: box-shadow 200ms ease, border-color 200ms ease;
+.dark .liquid-glass-subtle {
+  background-color: rgba(20, 40, 34, 0.32);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
-.clay-input:focus {
-  box-shadow: var(--clay-input-shadow), 0 0 0 2px var(--primary);
+/* Interactive Glass Card Hover */
+.liquid-glass-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover), var(--inner-highlight);
 }
 
-/* Glassmorphism Panel */
-.glass-panel {
-  background: color-mix(in srgb, var(--card) 85%, transparent);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid color-mix(in srgb, var(--border) 75%, transparent);
+/* Glass Pill (Section 13, 18) */
+.glass-pill {
+  border-radius: 9999px;
+  background-color: var(--surface-glass);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow), var(--inner-highlight);
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes top-loader {
-  0% { transform: translateX(-100%); }
-  50% { transform: translateX(20%); }
-  100% { transform: translateX(120%); }
+.glass-pill:hover {
+  background-color: var(--surface-glass-strong);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover), var(--inner-highlight);
 }
 
-.animate-top-loader {
-  animation: top-loader 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+.glass-pill:active {
+  transform: scale(0.98);
 }
 
-/* Accessibility skip link */
-.skip-link {
-  position: absolute;
-  top: -9999px;
-  left: 1rem;
-  z-index: 100;
-  padding: 0.75rem 1.25rem;
+/* Section 19: Liquid Button Material with hover sweep */
+.glass-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  min-height: 48px;
+  padding: 0 24px;
+  font-weight: 600;
+  font-size: 0.95rem;
   background-color: var(--primary);
   color: var(--primary-foreground);
-  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px 0 rgba(23, 60, 50, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+}
+
+.glass-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px 0 rgba(23, 60, 50, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.glass-btn-primary:active {
+  transform: scale(0.98);
+}
+
+.glass-btn-primary:focus-visible {
+  box-shadow: 0 0 0 3px var(--highlight), 0 4px 16px 0 rgba(23, 60, 50, 0.3);
+}
+
+/* Light Sweep effect for primary CTA */
+.glass-btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.25) 50%, transparent 70%);
+  transition: left 450ms ease;
+  pointer-events: none;
+}
+
+.glass-btn-primary:hover::after {
+  left: 100%;
+}
+
+/* Secondary Button: Transparent Liquid Glass (Section 17) */
+.glass-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  min-height: 48px;
+  padding: 0 24px;
   font-weight: 600;
-  text-decoration: none;
-  transition: top 150ms ease-in-out;
+  font-size: 0.95rem;
+  background-color: var(--surface-glass);
+  color: var(--foreground);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow), var(--inner-highlight);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
 
-.skip-link:focus {
-  top: 1rem;
+.glass-btn-secondary:hover {
+  background-color: var(--surface-glass-strong);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover), var(--inner-highlight);
 }
 
+.glass-btn-secondary:active {
+  transform: scale(0.98);
+}
+
+.glass-btn-secondary:focus-visible {
+  box-shadow: 0 0 0 3px var(--sage);
+}
+
+/* Section 42: Opaque & Highly Legible Glass Input */
+.glass-input {
+  background-color: var(--input);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background-color: var(--surface);
+  box-shadow: 0 0 0 3px rgba(23, 60, 50, 0.12), inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass-input:focus {
+  box-shadow: 0 0 0 3px rgba(118, 185, 157, 0.2), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Subtle 2.5% Environmental Noise (Section 9) */
+.bg-ambient-noise {
+  background-image: radial-gradient(rgba(23, 60, 50, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.dark .bg-ambient-noise {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Section 98: Browser Fallback without backdrop-filter */
+@supports not (backdrop-filter: blur(10px)) {
+  .liquid-glass,
+  .liquid-glass-strong,
+  .glass-pill,
+  .glass-btn-secondary {
+    background-color: #FFFFFF !important;
+  }
+  .dark .liquid-glass,
+  .dark .liquid-glass-strong,
+  .dark .glass-pill,
+  .dark .glass-btn-secondary {
+    background-color: #0D1D18 !important;
+  }
+}
+
+/* Accessibility: Prefers Reduced Motion (Section 69) */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .glass-btn-primary::after {
+    display: none !important;
+  }
+}
+
+/* Accessibility: High Contrast (Section 68) */
+@media (prefers-contrast: more) {
+  .liquid-glass,
+  .liquid-glass-strong {
+    border-width: 2px !important;
+    border-color: currentColor !important;
+    background-color: var(--surface) !important;
+  }
+}
+
+/* Backward compatibility aliases */
+.neu-card {
+  background-color: var(--surface-glass);
+  backdrop-filter: blur(var(--blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--blur)) saturate(160%);
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow), var(--inner-highlight);
+  border-radius: var(--radius);
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.neu-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover), var(--inner-highlight);
+}
+
+.neu-pill {
+  border-radius: 9999px;
+  background-color: var(--surface-glass);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow);
+}
+
+.neu-inset {
+  background-color: var(--input);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
 }

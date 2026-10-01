@@ -19,52 +19,65 @@ export function ThemeToggle({ className }: { className?: string }) {
     return (
       <div
         className={cn(
-          "h-8.5 w-24 rounded-full bg-muted/50 border border-border/60 animate-pulse",
+          "size-10 rounded-2xl bg-muted/40 border border-border/60 animate-pulse",
           className
         )}
       />
     );
   }
 
-  const options = [
-    { value: "light", label: "Light mode", icon: Sun },
-    { value: "system", label: "System default", icon: Laptop },
-    { value: "dark", label: "Dark mode", icon: Moon },
-  ];
+  // Sequence: light -> dark -> system -> light
+  const handleCycleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    } else if (theme === "dark") {
+      setTheme("system");
+    } else {
+      setTheme("light");
+    }
+  };
+
+  const getThemeInfo = () => {
+    switch (theme) {
+      case "light":
+        return {
+          label: "Theme: Light (Click for Dark)",
+          icon: Sun,
+          badge: "Light",
+        };
+      case "dark":
+        return {
+          label: "Theme: Dark (Click for System)",
+          icon: Moon,
+          badge: "Dark",
+        };
+      default:
+        return {
+          label: "Theme: System (Click for Light)",
+          icon: Laptop,
+          badge: "Auto",
+        };
+    }
+  };
+
+  const current = getThemeInfo();
+  const Icon = current.icon;
 
   return (
-    <div
-      role="radiogroup"
-      aria-label="Theme selection"
+    <button
+      type="button"
+      onClick={handleCycleTheme}
       className={cn(
-        "inline-flex items-center p-1 rounded-full bg-muted/60 border border-border/70 backdrop-blur-xs",
+        "relative inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-full liquid-glass border border-white/40 dark:border-white/10 text-foreground hover:border-primary/40 transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer group min-h-[38px]",
         className
       )}
+      title={current.label}
+      aria-label={current.label}
     >
-      {options.map((opt) => {
-        const Icon = opt.icon;
-        const isSelected = theme === opt.value;
-        return (
-          <button
-            key={opt.value}
-            type="button"
-            role="radio"
-            aria-checked={isSelected}
-            onClick={() => setTheme(opt.value)}
-            className={cn(
-              "relative p-1.5 rounded-full transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer",
-              isSelected
-                ? "bg-card text-primary clay-pill shadow-xs border border-border/80"
-                : "text-muted-foreground hover:text-foreground hover:bg-background/40"
-            )}
-            title={opt.label}
-            aria-label={opt.label}
-          >
-            <Icon className="size-3.5" aria-hidden="true" />
-            <span className="sr-only">{opt.label}</span>
-          </button>
-        );
-      })}
-    </div>
+      <Icon className="size-4 text-primary dark:text-sage transition-transform duration-200 group-hover:rotate-12" aria-hidden="true" />
+      <span className="text-[11px] font-bold text-muted-foreground group-hover:text-foreground hidden sm:inline-block">
+        {current.badge}
+      </span>
+    </button>
   );
 }

@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StructuredData } from "@/components/seo/StructuredData";
+import { BubbleCursor } from "@/components/effects/BubbleCursor";
 import { siteConfig } from "@/content/site";
 import "./globals.css";
 
@@ -69,7 +70,8 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans selection:bg-primary selection:text-primary-foreground">
+      <body className="min-h-full flex flex-col font-sans selection:bg-primary selection:text-primary-foreground bg-mesh-texture relative">
+        <BubbleCursor />
         <StructuredData type="website" />
         {/* Skip to Content for Screen Readers & Keyboard Nav */}
         <a href="#main-content" className="skip-link">
@@ -83,7 +85,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main id="main-content" className="flex-grow flex flex-col">
+          <main id="main-content" className="flex-grow flex flex-col relative z-10">
             {children}
           </main>
           <Footer />

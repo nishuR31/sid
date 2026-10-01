@@ -2,8 +2,8 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { AlertCircle, RotateCcw, Home } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { RotateCcw, Home, Mail } from "lucide-react";
+import { GlassButton } from "@/components/ui/glass/GlassButton";
 import { Container } from "@/components/layout/Container";
 
 export default function ErrorBoundary({
@@ -14,50 +14,49 @@ export default function ErrorBoundary({
   reset: () => void;
 }) {
   useEffect(() => {
-    // In production, send to telemetry (e.g. Sentry) without exposing to UI
     console.error("Route error boundary triggered:", error);
   }, [error]);
 
   return (
     <div className="py-20 md:py-32 my-auto">
       <Container size="narrow">
-        <div className="clay-card p-10 sm:p-14 rounded-3xl bg-card border-2 border-border/80 text-center flex flex-col items-center gap-6 shadow-xl">
-          <div className="size-16 rounded-3xl bg-destructive/10 text-destructive flex items-center justify-center">
-            <AlertCircle className="size-8" />
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-muted-foreground">
-              Temporary Interruption
+        <div className="liquid-glass-strong p-8 sm:p-14 rounded-3xl border border-white/60 dark:border-white/15 text-center flex flex-col items-center gap-6 shadow-2xl">
+          <div className="flex flex-col gap-2 max-w-md">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-primary dark:text-sage">
+              Session Paused
             </span>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-foreground tracking-tight">
-              Something went wrong. Let&apos;s get you back on track.
+            {/* Section 48 Message */}
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground font-heading tracking-tight">
+              Something interrupted the workout.
             </h1>
-            <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
-              An unexpected display glitch occurred while preparing this session. You can retry loading this view or return to the main homepage.
+            <p className="text-base text-muted-foreground leading-relaxed mt-1">
+              Try again or head back to the main floor.
             </p>
           </div>
 
+          {/* Section 48 Actions: Retry, Home, Contact */}
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-            <Button
+            <GlassButton
               onClick={() => reset()}
+              variant="primary"
               size="lg"
-              className="rounded-2xl gap-2 cursor-pointer shadow-md"
+              className="gap-2 cursor-pointer shadow-md"
             >
               <RotateCcw className="size-4" />
-              <span>Try Again</span>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="rounded-2xl gap-2"
-            >
+              <span>Retry</span>
+            </GlassButton>
+            <GlassButton asChild variant="secondary" size="lg" className="gap-2">
               <Link href="/">
                 <Home className="size-4" />
-                <span>Return to Home</span>
+                <span>Home</span>
               </Link>
-            </Button>
+            </GlassButton>
+            <GlassButton asChild variant="secondary" size="lg" className="gap-2">
+              <Link href="/contact">
+                <Mail className="size-4" />
+                <span>Contact</span>
+              </Link>
+            </GlassButton>
           </div>
         </div>
       </Container>

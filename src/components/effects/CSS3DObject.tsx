@@ -45,15 +45,15 @@ export function CSS3DObject({ className }: CSS3DObjectProps) {
           }}
         />
 
-        {/* Central Isometric Claymorphic Emblem Shield */}
+        {/* Central Isometric Neumorphic Emblem Shield */}
         <div
-          className="clay-card relative size-20 sm:size-24 rounded-3xl bg-card border-2 border-primary/50 flex flex-col items-center justify-center z-10"
+          className="neu-card relative size-20 sm:size-24 rounded-3xl bg-card border border-primary/30 flex flex-col items-center justify-center z-10"
           style={{
             transform: "translateZ(30px)",
-            boxShadow: "var(--clay-shadow)",
+            boxShadow: "var(--neu-flat)",
           }}
         >
-          <div className="size-12 sm:size-14 rounded-2xl bg-gradient-to-tr from-primary/20 via-primary/10 to-accent/20 border border-primary/30 flex items-center justify-center clay-pill shadow-xs">
+          <div className="size-12 sm:size-14 rounded-2xl bg-gradient-to-tr from-primary/20 via-primary/10 to-accent/20 border border-primary/30 flex items-center justify-center neu-pill shadow-xs">
             <span className="font-heading font-black text-lg sm:text-xl text-primary tracking-tight">SF</span>
           </div>
           <span className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground mt-1">COACH</span>

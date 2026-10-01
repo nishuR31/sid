@@ -469,7 +469,7 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
         aria-hidden="true"
       />
 
-      <div className="clay-card relative w-full max-w-xl bg-card border border-border/80 rounded-3xl shadow-2xl overflow-hidden z-10 flex flex-col max-h-[85vh]">
+      <div className="liquid-glass-strong relative w-full max-w-xl border border-white/60 dark:border-white/15 rounded-3xl shadow-2xl overflow-hidden z-10 flex flex-col max-h-[85vh]">
         {/* Search Input Bar */}
         <div className="flex items-center px-4 py-3.5 border-b border-border/80 gap-3">
           <Search className="size-5 text-muted-foreground shrink-0" aria-hidden="true" />
@@ -499,16 +499,16 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
           )}
           <button
             onClick={handleClose}
-            className="text-xs px-2 py-1 bg-muted rounded-lg text-muted-foreground hover:text-foreground font-mono cursor-pointer transition-colors"
+            className="text-xs px-2.5 py-1 liquid-glass rounded-lg text-muted-foreground hover:text-foreground font-mono cursor-pointer transition-colors"
           >
             ESC
           </button>
         </div>
 
         {/* Quick Suggestion Chips */}
-        <div className="px-4 py-2.5 flex items-center gap-1.5 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden border-b border-border/50 bg-muted/20">
+        <div className="px-4 py-2.5 flex items-center gap-1.5 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden border-b border-border/50 bg-white/20 dark:bg-black/20">
           <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground shrink-0 flex items-center gap-1 mr-1">
-            <Sparkles className="size-3 text-primary" /> Popular:
+            <Sparkles className="size-3 text-primary dark:text-sage" /> Popular:
           </span>
           {suggestionChips.map((chip) => (
             <button
@@ -518,7 +518,7 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
                 setQuery(chip.query);
                 setSelectedIndex(0);
               }}
-              className="px-2.5 py-1 rounded-full bg-secondary/15 hover:bg-secondary/30 text-xs font-semibold text-foreground transition-all shrink-0 cursor-pointer clay-pill border border-border/60 hover:border-primary/40 active:scale-95"
+              className="px-3 py-1 rounded-full liquid-glass hover:liquid-glass-strong text-xs font-semibold text-foreground transition-all shrink-0 cursor-pointer border border-white/40 dark:border-white/10"
             >
               {chip.label}
             </button>
@@ -560,12 +560,12 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
                   }}
                   className={`flex items-center justify-between p-3 rounded-2xl cursor-pointer transition-all ${
                     isSelected
-                      ? "bg-secondary/25 dark:bg-neutral-800/90 text-foreground border border-primary/40 shadow-xs ring-1 ring-primary/40 translate-x-1"
-                      : "hover:bg-muted/40 text-foreground/80 border border-transparent"
+                      ? "liquid-glass-strong text-foreground border border-primary/40 shadow-xs translate-x-1"
+                      : "hover:bg-white/30 dark:hover:bg-white/5 text-foreground/80 border border-transparent"
                   }`}
                 >
                   <div className="flex items-center gap-3 overflow-hidden">
-                    <div className="p-2 rounded-xl bg-card border border-border/80 shrink-0 clay-pill">
+                    <div className="p-2 rounded-xl liquid-glass shrink-0">
                       {getCategoryIcon(item.category)}
                     </div>
                     <div className="flex flex-col min-w-0">

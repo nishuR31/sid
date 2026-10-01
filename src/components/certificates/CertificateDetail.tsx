@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { ArrowLeft, Award, CheckCircle2, ExternalLink, ShieldCheck, BookOpen } from "lucide-react";
+import { ArrowLeft, Award, CheckCircle2, ExternalLink, ShieldCheck, ArrowRight } from "lucide-react";
 import { Certificate } from "@/types/content";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { GlassButton } from "@/components/ui/glass/GlassButton";
+import { GlassBadge } from "@/components/ui/glass/GlassBadge";
 
 interface CertificateDetailProps {
   certificate: Certificate;
@@ -11,7 +10,7 @@ interface CertificateDetailProps {
 
 export function CertificateDetail({ certificate }: CertificateDetailProps) {
   return (
-    <article className="max-w-4xl mx-auto flex flex-col gap-10">
+    <article className="max-w-5xl mx-auto flex flex-col gap-10">
       <div>
         <Link
           href="/certificates"
@@ -23,117 +22,166 @@ export function CertificateDetail({ certificate }: CertificateDetailProps) {
       </div>
 
       {/* Header Banner */}
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-3">
         <div className="flex flex-wrap items-center gap-3">
-          <Badge variant="default" className="gap-1.5">
+          <GlassBadge variant="sage" size="md">
             <ShieldCheck className="size-3.5" />
-            <span>Verified Credential</span>
-          </Badge>
+            <span>Verified Sanctioned Credential</span>
+          </GlassBadge>
           {certificate.credentialId && (
-            <span className="text-xs font-mono px-3 py-1 rounded-full bg-muted border border-border text-muted-foreground">
+            <span className="text-xs font-mono px-3 py-1 rounded-full liquid-glass border border-white/40 dark:border-white/10 text-muted-foreground">
               ID: {certificate.credentialId}
             </span>
           )}
         </div>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground font-heading">
           {certificate.title}
         </h1>
 
-        <p className="text-xl font-semibold text-primary">
+        <p className="text-lg sm:text-xl font-semibold text-primary dark:text-sage">
           Issued by {certificate.issuer}
         </p>
       </div>
 
-      {/* Certificate Visual Artifact Frame */}
-      <Card className="border-2 border-primary/20 bg-gradient-to-b from-card via-card to-secondary/5 p-8 sm:p-12 relative overflow-hidden">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b border-border/80 pb-8">
-          <div className="flex items-center gap-4">
-            <div className="size-16 rounded-3xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary shrink-0">
-              <Award className="size-9" />
-            </div>
-            <div>
-              <span className="text-xs uppercase tracking-widest font-bold text-muted-foreground block">
-                Official Credential Record
+      {/* Section 32: Layout - Left: Large Certificate Document, Right: Credential Information */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Left: Large Certificate Visual Document */}
+        <div className="lg:col-span-6">
+          <div className="relative aspect-[1.414/1] w-full bg-gradient-to-br from-[#FAF8F5] to-[#EFEBE4] dark:from-[#0E1F1A] dark:to-[#071310] p-8 rounded-3xl flex flex-col justify-between border border-border-glass shadow-2xl overflow-hidden">
+            <div className="absolute inset-4 border border-primary/20 dark:border-primary/30 rounded-2xl pointer-events-none" />
+            <div className="absolute inset-5 border border-dashed border-primary/15 dark:border-primary/20 rounded-xl pointer-events-none" />
+
+            <div className="relative z-10 flex items-center justify-between">
+              <div className="flex items-center gap-2 text-primary dark:text-sage">
+                <ShieldCheck className="size-6" />
+                <span className="text-xs font-mono font-bold tracking-widest uppercase">
+                  Accredited Certification
+                </span>
+              </div>
+              <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-primary/10 text-primary dark:text-sage">
+                {certificate.year}
               </span>
-              <h2 className="text-xl sm:text-2xl font-bold text-foreground mt-0.5">
+            </div>
+
+            <div className="relative z-10 text-center my-auto py-4">
+              <span className="text-xs uppercase tracking-widest text-muted-foreground font-semibold block mb-1">
+                Conferred Upon
+              </span>
+              <h3 className="font-heading font-black text-2xl sm:text-3xl text-[#10231E] dark:text-[#F2F6F3] tracking-tight">
+                Siddharth
+              </h3>
+              <p className="text-sm sm:text-base font-bold text-primary dark:text-sage mt-2">
                 {certificate.title}
-              </h2>
-              <span className="text-sm text-primary font-medium">{certificate.issuer}</span>
+              </p>
+              <span className="text-xs text-muted-foreground block mt-1">
+                {certificate.issuer}
+              </span>
+            </div>
+
+            <div className="relative z-10 flex items-end justify-between pt-4 border-t border-primary/10 text-xs font-mono text-muted-foreground">
+              <div>
+                <span className="block font-bold">Credential: {certificate.credentialId || "VERIFIED"}</span>
+                <span className="text-[11px] text-muted-foreground/70">{certificate.date}</span>
+              </div>
+              <div className="flex items-center gap-1.5 text-primary dark:text-sage font-bold">
+                <Award className="size-4" />
+                <span>Sanctioned Standing</span>
+              </div>
             </div>
           </div>
-
-          {certificate.verificationUrl && (
-            <Button asChild size="lg" className="rounded-2xl shrink-0">
-              <a href={certificate.verificationUrl} target="_blank" rel="noopener noreferrer">
-                <span>Verify on Issuer Site</span>
-                <ExternalLink className="size-4 ml-2" />
-              </a>
-            </Button>
-          )}
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 text-sm">
-          <div>
-            <span className="text-xs text-muted-foreground uppercase font-bold tracking-wider block">Awarded</span>
-            <span className="font-semibold text-foreground mt-1 block">{certificate.date}</span>
-          </div>
-          <div>
-            <span className="text-xs text-muted-foreground uppercase font-bold tracking-wider block">Status</span>
-            <span className="font-semibold text-emerald-600 dark:text-emerald-400 mt-1 block">
-              {certificate.expiryDate || "Active Lifetime"}
-            </span>
-          </div>
-          <div>
-            <span className="text-xs text-muted-foreground uppercase font-bold tracking-wider block">Verification</span>
-            <span className="font-semibold text-foreground mt-1 block">Sanctioned</span>
-          </div>
-          <div>
-            <span className="text-xs text-muted-foreground uppercase font-bold tracking-wider block">Trainer</span>
-            <span className="font-semibold text-foreground mt-1 block">Siddharth</span>
-          </div>
-        </div>
-      </Card>
+        {/* Right: Credential Information & Skills */}
+        <div className="lg:col-span-6 flex flex-col gap-6">
+          <div className="liquid-glass-strong p-6 sm:p-8 rounded-3xl border border-white/60 dark:border-white/15 shadow-xl flex flex-col gap-5">
+            <h3 className="text-xl font-bold font-heading text-foreground">
+              Credential Specifications
+            </h3>
 
-      {/* Details & Covered Competencies */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <Card className="p-6 sm:p-8">
-          <h3 className="text-xl font-bold mb-4 text-foreground flex items-center gap-2">
-            <BookOpen className="size-5 text-primary" />
-            <span>Curriculum &amp; Standard</span>
-          </h3>
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-            {certificate.description}
-          </p>
-        </Card>
+            <div className="grid grid-cols-2 gap-4 text-sm">
+              <div className="p-3 rounded-2xl liquid-glass">
+                <span className="text-[11px] uppercase font-bold text-muted-foreground block">
+                  Issuer
+                </span>
+                <span className="font-semibold text-foreground mt-0.5 block">
+                  {certificate.issuer}
+                </span>
+              </div>
+              <div className="p-3 rounded-2xl liquid-glass">
+                <span className="text-[11px] uppercase font-bold text-muted-foreground block">
+                  Credential ID
+                </span>
+                <span className="font-semibold font-mono text-foreground mt-0.5 block">
+                  {certificate.credentialId || "Recorded"}
+                </span>
+              </div>
+              <div className="p-3 rounded-2xl liquid-glass">
+                <span className="text-[11px] uppercase font-bold text-muted-foreground block">
+                  Awarded Date
+                </span>
+                <span className="font-semibold text-foreground mt-0.5 block">
+                  {certificate.date}
+                </span>
+              </div>
+              <div className="p-3 rounded-2xl liquid-glass">
+                <span className="text-[11px] uppercase font-bold text-muted-foreground block">
+                  Status
+                </span>
+                <span className="font-semibold text-primary dark:text-sage mt-0.5 block">
+                  {certificate.expiryDate || "Active Lifetime"}
+                </span>
+              </div>
+            </div>
 
-        <Card className="p-6 sm:p-8">
-          <h3 className="text-xl font-bold mb-4 text-foreground flex items-center gap-2">
-            <CheckCircle2 className="size-5 text-accent" />
-            <span>Assessed Competencies</span>
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {certificate.skills.map((skill, idx) => (
-              <span
-                key={idx}
-                className="px-3 py-1.5 rounded-xl bg-secondary/15 text-primary dark:text-foreground border border-secondary/30 text-xs font-semibold"
-              >
-                {skill}
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {certificate.description}
+            </p>
+
+            <div>
+              <span className="text-xs uppercase font-bold tracking-wider text-muted-foreground block mb-2">
+                Related Expertise
               </span>
-            ))}
-          </div>
-        </Card>
-      </div>
+              <div className="flex flex-wrap gap-2">
+                {certificate.skills.map((skill, idx) => (
+                  <GlassBadge key={idx} variant="primary" size="sm">
+                    {skill}
+                  </GlassBadge>
+                ))}
+              </div>
+            </div>
 
-      {/* Bottom CTA */}
-      <div className="p-8 rounded-3xl bg-card border border-border/80 text-center flex flex-col items-center gap-4">
-        <h3 className="text-2xl font-bold text-foreground">Want to apply these evidence-based principles?</h3>
-        <p className="text-sm text-muted-foreground max-w-lg">
-          Train under a coach whose credentials represent thousands of hours of academic study and practical clinical application.
-        </p>
-        <Button asChild size="lg" className="rounded-2xl px-8">
-          <Link href="/contact">Inquire About Coaching &rarr;</Link>
-        </Button>
+            {certificate.verificationUrl && (
+              <div className="pt-2">
+                <a
+                  href={certificate.verificationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary dark:text-sage hover:underline"
+                >
+                  <span>Verify on official {certificate.issuer} registry</span>
+                  <ExternalLink className="size-3.5" />
+                </a>
+              </div>
+            )}
+          </div>
+
+          {/* Section 32 CTA: Ask Siddharth About Coaching */}
+          <div className="liquid-glass p-6 rounded-3xl border border-white/50 dark:border-white/10 flex flex-col gap-3">
+            <h4 className="font-bold text-base text-foreground font-heading">
+              Interested in training under this methodology?
+            </h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Siddharth applies these exact biomechanical protocols to every custom training client.
+            </p>
+            <GlassButton asChild variant="primary" size="lg" className="w-full mt-1">
+              <Link href={`/contact?subject=Inquiry regarding ${encodeURIComponent(certificate.title)}`}>
+                <span>Ask Siddharth About Coaching</span>
+                <ArrowRight className="size-4 ml-1" />
+              </Link>
+            </GlassButton>
+          </div>
+        </div>
       </div>
     </article>
   );

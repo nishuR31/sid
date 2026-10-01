@@ -1,310 +1,464 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Container } from "@/components/layout/Container";
+import {
+  ShieldCheck,
+  Dumbbell,
+  Activity,
+  Compass,
+  UserCheck,
+  Sparkles,
+  ArrowRight,
+  Flame,
+  Award,
+} from "lucide-react";
 import { HeroSection } from "@/components/hero/HeroSection";
-import { PlanCard } from "@/components/plans/PlanCard";
-import { AchievementCard } from "@/components/achievements/AchievementCard";
-import { CertificateCard } from "@/components/certificates/CertificateCard";
-import { TestimonialCard } from "@/components/testimonials/TestimonialCard";
+import { GlassPanel } from "@/components/ui/glass/GlassPanel";
+import { GlassCard, GlassCardHeader, GlassCardTitle, GlassCardDescription, GlassCardContent, GlassCardFooter } from "@/components/ui/glass/GlassCard";
+import { GlassButton } from "@/components/ui/glass/GlassButton";
+import { GlassBadge } from "@/components/ui/glass/GlassBadge";
+import { GlassImageFrame, GlassSection, GlassDivider } from "@/components/ui/glass/GlassImageFrame";
+import { PhilosophySequence, GlassTimeline } from "@/components/ui/glass/GlassTimeline";
+import { GlassPricingCard, CustomCoachingPanel } from "@/components/ui/glass/GlassPricingCard";
+import { GlassTestimonial } from "@/components/ui/glass/GlassTestimonial";
+import { GlassCertificateCard } from "@/components/ui/glass/GlassCertificateCard";
+import { GlassSocialButton } from "@/components/ui/glass/GlassSocialButton";
+import { ContactForm } from "@/components/contact/ContactForm";
 import { ScrollReveal } from "@/components/effects/ScrollReveal";
-import { plans } from "@/content/plans";
+import { profile } from "@/content/site";
 import { achievements } from "@/content/achievements";
 import { certificates } from "@/content/certificates";
 import { testimonials } from "@/content/testimonials";
-import { profile } from "@/content/site";
+import { plans } from "@/content/plans";
+import { socialLinks } from "@/content/social";
 
 export default function Home() {
+  // Section 25: 5-step horizontal philosophy sequence
+  const philosophySteps = [
+    {
+      step: "01",
+      title: "Assess",
+      description:
+        "Comprehensive screening of joint mobility, kinematics, posture, and training history.",
+    },
+    {
+      step: "02",
+      title: "Plan",
+      description:
+        "Personalized periodization mapped to equipment access, schedule, and recovery biology.",
+    },
+    {
+      step: "03",
+      title: "Train",
+      description:
+        "Mastering compound execution with strict progressive overload and form critique.",
+    },
+    {
+      step: "04",
+      title: "Adapt",
+      description:
+        "Continuous feedback loops tuning nutrition, volume, and fatigue management.",
+    },
+    {
+      step: "05",
+      title: "Progress",
+      description:
+        "Measurable physical strength, joint resilience, and sustainable discipline.",
+    },
+  ];
+
+  // Section 26: 4 focused services
+  const services = [
+    {
+      icon: <Dumbbell className="size-6 text-primary dark:text-sage" />,
+      title: "Strength & Hypertrophy",
+      description:
+        "Evidence-based resistance programming designed to maximize muscular development without joint wear.",
+    },
+    {
+      icon: <Flame className="size-6 text-primary dark:text-sage" />,
+      title: "Fat Loss & Conditioning",
+      description:
+        "Metabolic conditioning and nutritional architecture that preserves lean mass while optimizing body composition.",
+    },
+    {
+      icon: <Activity className="size-6 text-primary dark:text-sage" />,
+      title: "Mobility & Joint Health",
+      description:
+        "End-range articular strength and corrective movement kinematics to eliminate chronic aches.",
+    },
+    {
+      icon: <UserCheck className="size-6 text-primary dark:text-sage" />,
+      title: "Personalized 1-on-1 Coaching",
+      description:
+        "Direct guidance, video audits, and weekly accountability tailored to your specific physical goals.",
+    },
+  ];
+
   return (
-    <div className="flex flex-col gap-20 md:gap-32 pb-24">
-      {/* 1. Hero Section */}
+    <div className="flex flex-col gap-12 sm:gap-20 pb-16 overflow-hidden">
+      {/* 1. Hero Section (Section 11, 12, 17, 53, 56) */}
       <HeroSection />
 
-      {/* 2. Trust Numbers Bar */}
-      <section className="border-y border-border/80 bg-card/60 py-10">
-        <Container>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="flex flex-col gap-1">
-              <span className="text-3xl sm:text-4xl font-black text-primary">7+</span>
-              <span className="text-xs uppercase tracking-wider font-semibold text-muted-foreground">Years Coaching</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-3xl sm:text-4xl font-black text-foreground">565kg</span>
-              <span className="text-xs uppercase tracking-wider font-semibold text-muted-foreground">Sanctioned Total</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-3xl sm:text-4xl font-black text-accent">100%</span>
-              <span className="text-xs uppercase tracking-wider font-semibold text-muted-foreground">Drug-Free Athletics</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-3xl sm:text-4xl font-black text-foreground">94%</span>
-              <span className="text-xs uppercase tracking-wider font-semibold text-muted-foreground">1-Year Client Retention</span>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* 3. About Siddharth / Training Philosophy */}
-      <section className="relative">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Sticky Overview Column */}
-            <div className="lg:col-span-6 lg:sticky lg:top-28 self-start flex flex-col gap-6">
-              <ScrollReveal>
-                <SectionHeading
-                  align="left"
-                  eyebrow="Coaching Ethos"
-                  title="Evidence-Based Strength. Built For Longevity."
-                  description="Fitness is not an extreme 12-week sprint; it is an enduring physical discipline. We eliminate internet dogma, assess your individual movement anatomy, and build progressive momentum you can sustain for decades."
-                  className="mb-0"
-                />
-
-                <div className="space-y-4 pt-3">
-                  <div className="flex items-start gap-3.5">
-                    <div className="p-1.5 rounded-xl bg-primary/10 text-primary mt-0.5 shrink-0 border border-primary/20">
-                      <CheckCircle2 className="size-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-base text-foreground">Mastering Movement Kinematics</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Joint moment arms, active spinal bracing, and customized foot/grip positions to eliminate nagging impingement.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3.5">
-                    <div className="p-1.5 rounded-xl bg-primary/10 text-primary mt-0.5 shrink-0 border border-primary/20">
-                      <CheckCircle2 className="size-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-base text-foreground">Data-Driven Progressive Overload</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Every set, repetition, and RPE rating is tracked systematically to ensure steady adaptation without catastrophic fatigue.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3.5">
-                    <div className="p-1.5 rounded-xl bg-primary/10 text-primary mt-0.5 shrink-0 border border-primary/20">
-                      <CheckCircle2 className="size-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-base text-foreground">Nutrition Built Around Real Life</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Nutritional periodization that fuels muscle protein synthesis and mental sharpness without turning social dinners into a chore.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-4 flex items-center gap-4">
-                  <Button asChild size="lg" className="rounded-2xl">
-                    <Link href="/about">Read Siddharth&apos;s Full Story</Link>
-                  </Button>
-                </div>
-              </ScrollReveal>
-            </div>
-
-            {/* Approach Pillars Grid - Scrolls smoothly with parallax depth */}
-            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {profile.approachCategories.map((item, idx) => (
-                <ScrollReveal key={idx} delay={idx * 0.1} yOffset={20}>
-                  <Card className="p-6 h-full flex flex-col justify-between">
-                    <div>
-                      <div className="size-11 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-4 border border-primary/20">
-                        <Sparkles className="size-5" />
-                      </div>
-                      <h4 className="font-bold text-base text-foreground mb-2">{item.title}</h4>
-                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-                    </div>
-                  </Card>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* 4. Coaching Plans Overview */}
-      <section className="bg-muted/30 py-20 border-y border-border/80">
-        <Container>
-          <ScrollReveal>
-            <SectionHeading
-              eyebrow="Programs & Tracks"
-              title="Structured Coaching Plans"
-              description="Transparent, non-transactional starting points. Every program includes personalized movement screening and ongoing form oversight."
-            />
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {plans.slice(0, 3).map((plan, idx) => (
-              <ScrollReveal key={plan.id} delay={idx * 0.1}>
-                <PlanCard plan={plan} />
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Button asChild variant="outline" size="lg" className="rounded-2xl">
-              <Link href="/plans">
-                <span>View Full Curriculum &amp; Compare Plans</span>
-                <ArrowRight className="size-4 ml-2" />
-              </Link>
-            </Button>
-          </div>
-        </Container>
-      </section>
-
-      {/* 5. Custom Coaching Dedicated Section */}
-      <section>
-        <Container>
-          <ScrollReveal>
-            <div className="clay-card p-8 sm:p-14 bg-gradient-to-tr from-card via-card to-secondary/10 border-2 border-primary/20 rounded-3xl">
-              <div className="max-w-3xl">
-                <span className="text-xs uppercase tracking-widest font-bold text-primary block mb-2">
-                  Tailored To You
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight mb-4">
-                  Your goals aren&apos;t standard. Your plan shouldn&apos;t be either.
-                </h2>
-                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-6">
-                  Whether you are rehabilitating a past shoulder separation, preparing for a tactical fitness test, or balancing intense executive travel schedules, Siddharth designs bespoke coaching agreements with custom session cadence.
-                </p>
-                <div className="flex flex-wrap items-center gap-4">
-                  <Button asChild size="lg" className="rounded-2xl shadow-md">
-                    <Link href="/contact?plan=Custom%20Coaching">
-                      Discuss a Custom Blueprint
-                    </Link>
-                  </Button>
-                  <Button asChild variant="ghost" className="text-foreground hover:text-primary">
-                    <Link href="/contact">Ask a question first &rarr;</Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        </Container>
-      </section>
-
-      {/* 6. Achievements Preview */}
-      <section>
-        <Container>
-          <ScrollReveal>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-              <SectionHeading
-                align="left"
-                eyebrow="Track Record"
-                title="Verified Competitive &amp; Coaching Achievements"
-                description="Tangible proof of physical capability and professional recognition. No fabricated titles."
-                className="mb-0 max-w-2xl"
-              />
-              <Button asChild variant="outline" className="rounded-xl shrink-0 self-start md:self-end">
-                <Link href="/achievements">
-                  <span>All Achievements</span>
-                  <ArrowRight className="size-3.5 ml-2" />
-                </Link>
-              </Button>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {achievements.slice(0, 3).map((achievement, idx) => (
-              <ScrollReveal key={achievement.id} delay={idx * 0.1}>
-                <AchievementCard achievement={achievement} />
-              </ScrollReveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* 7. Certifications Preview */}
-      <section className="bg-muted/20 py-20 border-y border-border/80">
-        <Container>
-          <ScrollReveal>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-              <SectionHeading
-                align="left"
-                eyebrow="Academic Credentials"
-                title="Sanctioned Certifications"
-                description="Accredited qualifications in exercise physiology, athletic periodization, and nutritional science."
-                className="mb-0 max-w-2xl"
-              />
-              <Button asChild variant="outline" className="rounded-xl shrink-0 self-start md:self-end">
-                <Link href="/certificates">
-                  <span>View All Certifications</span>
-                  <ArrowRight className="size-3.5 ml-2" />
-                </Link>
-              </Button>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {certificates.slice(0, 3).map((cert, idx) => (
-              <ScrollReveal key={cert.id} delay={idx * 0.1}>
-                <CertificateCard certificate={cert} />
-              </ScrollReveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* 8. Client Testimonials */}
-      <section>
-        <Container>
-          <ScrollReveal>
-            <SectionHeading
-              eyebrow="Real Client Feedback"
-              title="Verified Transformations"
-              description="Authentic experiences from real clients. Sustainable strength gains, pain-free posture, and lifestyle resilience."
-            />
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.slice(0, 3).map((testimonial, idx) => (
-              <ScrollReveal key={testimonial.id} delay={idx * 0.1}>
-                <TestimonialCard testimonial={testimonial} />
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Button asChild variant="outline" size="lg" className="rounded-2xl">
-              <Link href="/testimonials">
-                <span>Read More Client Stories</span>
-                <ArrowRight className="size-4 ml-2" />
-              </Link>
-            </Button>
-          </div>
-        </Container>
-      </section>
-
-      {/* 9. Final Contact CTA Banner */}
-      <section>
-        <Container>
-          <ScrollReveal>
-            <div className="clay-card p-10 sm:p-16 text-center rounded-3xl bg-gradient-to-b from-card via-card to-primary/10 border-2 border-primary/30 flex flex-col items-center gap-6">
-              <span className="px-4 py-1.5 rounded-full bg-primary/15 text-primary text-xs font-bold uppercase tracking-wider">
-                Start Your Journey
+      {/* 2. Trust Numbers Bar (Section 80) */}
+      <section className="relative z-20 -mt-8 sm:-mt-14 px-4 sm:px-6">
+        <div className="max-w-5xl mx-auto liquid-glass-strong rounded-3xl p-6 sm:p-8 shadow-xl border border-white/60 dark:border-white/15">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x-0 md:divide-x divide-border-glass">
+            <div className="flex flex-col gap-1 px-3">
+              <span className="text-3xl sm:text-4xl font-black text-primary dark:text-sage font-heading">
+                7+
               </span>
-              <h2 className="text-3xl sm:text-5xl font-black text-foreground tracking-tight max-w-2xl text-balance">
-                Ready to take control of your physical vitality?
-              </h2>
-              <p className="text-base sm:text-lg text-muted-foreground max-w-xl text-balance">
-                Send Siddharth a message with your background and goals. Receive an honest, objective roadmap before making any commitment.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                <Button asChild size="lg" className="rounded-2xl text-base px-8 shadow-md">
-                  <Link href="/contact">Talk to Siddharth</Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="rounded-2xl text-base px-8 border-primary/30 text-primary">
-                  <Link href="/plans">Explore Coaching Plans</Link>
-                </Button>
+              <span className="text-xs uppercase tracking-wider font-bold text-muted-foreground">
+                Years Coaching
+              </span>
+            </div>
+            <div className="flex flex-col gap-1 px-3">
+              <span className="text-3xl sm:text-4xl font-black text-foreground font-heading">
+                500+
+              </span>
+              <span className="text-xs uppercase tracking-wider font-bold text-muted-foreground">
+                Clients Coached
+              </span>
+            </div>
+            <div className="flex flex-col gap-1 px-3">
+              <span className="text-3xl sm:text-4xl font-black text-primary dark:text-sage font-heading">
+                565kg
+              </span>
+              <span className="text-xs uppercase tracking-wider font-bold text-muted-foreground">
+                Sanctioned Total
+              </span>
+            </div>
+            <div className="flex flex-col gap-1 px-3">
+              <span className="text-3xl sm:text-4xl font-black text-foreground font-heading">
+                100%
+              </span>
+              <span className="text-xs uppercase tracking-wider font-bold text-muted-foreground">
+                Drug-Free Athletics
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. About Section (Section 23-24: Asymmetric layout, Left photo, Right glass card) */}
+      <section className="py-12 sm:py-20 relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left: Large Editorial Photo of Siddharth Coaching (Section 23) */}
+            <div className="lg:col-span-6">
+              <ScrollReveal>
+                <GlassImageFrame
+                  src={profile.images.coaching}
+                  alt="Siddharth coaching a client on barbell kinematics"
+                  aspectRatio="editorial"
+                  className="shadow-2xl"
+                  overlayBadge={
+                    <div className="liquid-glass-strong rounded-2xl p-4 border border-white/60 dark:border-white/15">
+                      <div className="flex items-center gap-2 text-xs font-semibold text-foreground">
+                        <Sparkles className="size-4 text-primary dark:text-sage" />
+                        <span>Biomechanical Precision &amp; Active Form Guidance</span>
+                      </div>
+                    </div>
+                  }
+                />
+              </ScrollReveal>
+            </div>
+
+            {/* Right: Glass Information Card (Section 24) */}
+            <div className="lg:col-span-6">
+              <ScrollReveal delay={0.1}>
+                <div className="liquid-glass-strong rounded-3xl p-8 sm:p-10 border border-white/60 dark:border-white/15 shadow-xl flex flex-col gap-6">
+                  <div>
+                    <span className="text-xs uppercase font-bold tracking-widest text-primary dark:text-sage block mb-2 font-mono">
+                      Coaching Philosophy
+                    </span>
+                    <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground font-heading leading-tight">
+                      Strength is a lifelong discipline, not a 12-week sprint.
+                    </h2>
+                  </div>
+
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    {profile.philosophy}
+                  </p>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {profile.bio}
+                  </p>
+
+                  {/* Credential chips */}
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {profile.specialties.map((specialty, idx) => (
+                      <GlassBadge key={idx} variant="primary" size="sm">
+                        {specialty}
+                      </GlassBadge>
+                    ))}
+                  </div>
+
+                  <div className="pt-4 flex flex-wrap items-center gap-4">
+                    <GlassButton asChild variant="primary" size="md">
+                      <Link href="/about">
+                        <span>Read Siddharth&apos;s Full Story</span>
+                        <ArrowRight className="size-4 ml-1" />
+                      </Link>
+                    </GlassButton>
+                    <GlassButton asChild variant="secondary" size="md">
+                      <Link href="/contact">Ask a Question</Link>
+                    </GlassButton>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Training Philosophy Horizontal Sequence (Section 25) */}
+      <GlassSection
+        eyebrow="Progression Architecture"
+        title="How We Build Lasting Results"
+        description="Every client follows a structured, evidence-backed narrative progression from initial diagnostic to long-term autonomy."
+        className="py-12"
+      >
+        <ScrollReveal>
+          <PhilosophySequence steps={philosophySteps} />
+        </ScrollReveal>
+      </GlassSection>
+
+      {/* 5. Services Section (Section 26-27: 3-4 services maximum) */}
+      <GlassSection
+        eyebrow="Specialized Coaching"
+        title="Focused Training Domains"
+        description="No bloated service catalogs. Four core disciplines executed with surgical biomechanical rigor."
+        className="py-12"
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map((srv, idx) => (
+            <ScrollReveal key={idx} delay={idx * 0.05}>
+              <GlassCard
+                variant="default"
+                hoverEffect
+                className="h-full group hover:border-primary/40 transition-all duration-300"
+              >
+                <GlassCardHeader>
+                  <div className="size-12 rounded-2xl liquid-glass flex items-center justify-center mb-2 group-hover:scale-105 group-hover:border-primary/40 transition-all duration-300">
+                    {srv.icon}
+                  </div>
+                  <GlassCardTitle className="text-lg">
+                    {srv.title}
+                  </GlassCardTitle>
+                </GlassCardHeader>
+                <GlassCardContent>
+                  <GlassCardDescription>
+                    {srv.description}
+                  </GlassCardDescription>
+                </GlassCardContent>
+              </GlassCard>
+            </ScrollReveal>
+          ))}
+        </div>
+      </GlassSection>
+
+      {/* 6. Photography Interlude: Strength in Action (Section 10 & 100 & 117) */}
+      <section className="py-12 relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <ScrollReveal>
+          <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/40 dark:border-white/10 aspect-[16/9] sm:aspect-[21/9]">
+            <GlassImageFrame
+              src={profile.images.strength}
+              alt="Siddharth performing heavy deadlift with disciplined form"
+              aspectRatio="editorial"
+              className="size-full"
+            />
+            {/* Floating Glass Brand Statement (Section 117) */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-20 flex items-end p-6 sm:p-12">
+              <div className="liquid-glass-strong rounded-3xl p-6 sm:p-8 max-w-2xl border border-white/60 dark:border-white/15 backdrop-blur-xl">
+                <span className="text-xs uppercase font-mono font-bold tracking-widest text-primary dark:text-sage block mb-1">
+                  Core Credo
+                </span>
+                <p className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white font-heading tracking-tight">
+                  &ldquo;Strength is visible. Discipline is structured. Progress is personal.&rdquo;
+                </p>
+                <span className="text-xs sm:text-sm text-white/70 block mt-2">
+                  — Siddharth, Certified Strength &amp; Conditioning Coach
+                </span>
               </div>
             </div>
-          </ScrollReveal>
-        </Container>
+          </div>
+        </ScrollReveal>
+      </section>
+
+      {/* 7. Achievements & Proof Wall (Section 28-29) */}
+      <GlassSection
+        eyebrow="Sanctioned Proof"
+        title="Tested on the Platform"
+        description="True coaching mastery starts with personal adherence. Siddharth tests his methodology against strict national competition standards."
+        className="py-12"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Featured Achievement Card (Section 28) */}
+          <div className="lg:col-span-5">
+            <ScrollReveal>
+              <div className="liquid-glass-strong rounded-3xl p-8 border-sage/40 dark:border-primary/40 shadow-xl flex flex-col justify-between h-full">
+                <div>
+                  <GlassBadge variant="highlight" size="md" className="mb-4">
+                    <Award className="size-3.5 fill-current" />
+                    <span>Featured Sanctioned Benchmark</span>
+                  </GlassBadge>
+
+                  <span className="text-xs font-mono font-bold text-muted-foreground block mb-1">
+                    2024 National Open
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground font-heading tracking-tight mb-4">
+                    National Powerlifting Championship — Silver Medal
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                    Competed in the 83kg Open Division under IPF sanctioned judging, achieving an official 565kg three-lift total (squat, bench press, deadlift).
+                  </p>
+                </div>
+
+                <div className="pt-6 border-t border-border/40 flex items-center justify-between">
+                  <div className="flex flex-col">
+                    <span className="text-2xl font-black font-heading text-primary dark:text-sage">
+                      565 kg
+                    </span>
+                    <span className="text-[10px] uppercase font-bold text-muted-foreground">
+                      Sanctioned Total
+                    </span>
+                  </div>
+                  <GlassButton asChild variant="secondary" size="sm">
+                    <Link href="/achievements">Explore All Records</Link>
+                  </GlassButton>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* Achievement Timeline (Section 29) */}
+          <div className="lg:col-span-7">
+            <ScrollReveal delay={0.1}>
+              <GlassTimeline items={achievements.slice(1, 4)} />
+            </ScrollReveal>
+          </div>
+        </div>
+      </GlassSection>
+
+      {/* 8. Accreditations & Certificates Gallery (Section 30-32) */}
+      <GlassSection
+        eyebrow="Verified Credentials"
+        title="Accredited Education"
+        description="Continuous professional education grounded in peer-reviewed exercise physiology, biomechanics, and sports nutrition."
+        className="py-12"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {certificates.slice(0, 3).map((cert, idx) => (
+            <ScrollReveal key={cert.id} delay={idx * 0.05}>
+              <GlassCertificateCard certificate={cert} />
+            </ScrollReveal>
+          ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <GlassButton asChild variant="secondary" size="lg">
+            <Link href="/certificates">
+              <span>View All 5 Accredited Certifications</span>
+              <ArrowRight className="size-4 ml-1" />
+            </Link>
+          </GlassButton>
+        </div>
+      </GlassSection>
+
+      {/* 9. Testimonials & Social Proof (Section 33-34) */}
+      <GlassSection
+        eyebrow="Client Outcomes"
+        title="Real Humans. Measurable Vitality."
+        description="Authentic client accounts. No manufactured hype or guaranteed quick fixes—just consistent progress earned through discipline."
+        className="py-12"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          {/* Featured Large Testimonial (Section 33) */}
+          <div className="lg:col-span-7">
+            <ScrollReveal>
+              <GlassTestimonial
+                {...testimonials[0]}
+                featured
+              />
+            </ScrollReveal>
+          </div>
+
+          {/* Secondary Testimonials */}
+          <div className="lg:col-span-5 flex flex-col gap-6">
+            {testimonials.slice(1, 3).map((t, idx) => (
+              <ScrollReveal key={t.id} delay={idx * 0.08}>
+                <GlassTestimonial {...t} />
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </GlassSection>
+
+      {/* 10. Coaching Plans & Pricing (Section 36-39) */}
+      <GlassSection
+        eyebrow="Coaching Tiers"
+        title="Transparent Starting Points"
+        description="Clear, non-transactional partnership structures. Understand the scope in under ten seconds."
+        className="py-12"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+          {plans.slice(0, 3).map((plan, idx) => (
+            <ScrollReveal key={plan.id} delay={idx * 0.06}>
+              <GlassPricingCard
+                id={plan.id}
+                name={plan.name}
+                price={plan.startingPrice}
+                period={plan.period}
+                description={plan.description}
+                features={plan.features.slice(0, 5)}
+                recommended={plan.recommended}
+                suitableFor={plan.suitableFor}
+                className="h-full"
+              />
+            </ScrollReveal>
+          ))}
+        </div>
+
+        {/* Section 39: Custom Coaching Distinct Glass Panel */}
+        <ScrollReveal delay={0.15}>
+          <CustomCoachingPanel />
+        </ScrollReveal>
+      </GlassSection>
+
+      {/* 11. Social Channels Strip (Section 40) */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div className="liquid-glass rounded-3xl p-6 sm:p-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+            <div>
+              <h3 className="font-heading font-bold text-lg text-foreground">
+                Follow Siddharth&apos;s Training
+              </h3>
+              <p className="text-xs text-muted-foreground">
+                Daily exercise tutorials, movement biomechanics, and long-term discipline.
+              </p>
+            </div>
+            <GlassBadge variant="sage" size="sm">
+              Official Channels
+            </GlassBadge>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {socialLinks.slice(0, 4).map((s) => (
+              <GlassSocialButton
+                key={s.url}
+                platform={s.label}
+                url={s.url}
+                handle={s.handle}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 12. Contact Section Endpoint (Section 41-43) */}
+      <section id="contact-section" className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <ScrollReveal>
+          <ContactForm />
+        </ScrollReveal>
       </section>
     </div>
   );

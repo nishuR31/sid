@@ -47,8 +47,8 @@ export default function ContactPage() {
 
           {/* Direct channels & Communication SLA */}
           <div className="lg:col-span-5 flex flex-col gap-6">
-            <div className="clay-card p-6 sm:p-8 rounded-3xl bg-card border border-border/80 flex flex-col gap-5">
-              <h3 className="font-bold text-xl text-foreground">Direct Channels</h3>
+            <div className="liquid-glass-strong p-6 sm:p-8 rounded-3xl border border-white/60 dark:border-white/15 flex flex-col gap-5 shadow-xl">
+              <h3 className="font-bold text-xl text-foreground font-heading">Direct Channels</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Connect with Siddharth directly via Instagram or send a direct email. We do not provide phone numbers to prevent unsolicited contact.
               </p>
