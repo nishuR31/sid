@@ -1,0 +1,87 @@
+# .context — Siddharth Fit
+
+## Project Purpose
+
+Siddharth Fit is a premium personal-trainer portfolio and fitness-coaching website for a trainer named Siddharth. It serves as a lead-generation system where visitors learn about Siddharth, evaluate his expertise through achievements, certifications, and testimonials, review coaching plans with approximate pricing, and then contact him directly.
+
+All payments, onboarding, and service delivery happen externally. The website does not process transactions.
+
+## Brand Direction
+
+Visual identity: Premium wellness studio, not hardcore bodybuilding advertisement.
+
+Palette:
+
+- Primary: Deep forest / muted emerald (health, growth, balance)
+- Secondary: Sage (recovery, natural calm)
+- Surface: Warm off-white / soft cream (human warmth)
+- Accent: Muted teal (calmness, trust, modernity)
+- Dark: Deep charcoal / near-black green (strength without aggression)
+- Optional highlight: Soft amber (used sparingly)
+
+Design language: Claymorphism + soft glass + controlled depth. Subtle, not inflated plastic. Large soft-radius cards, layered surfaces, low-contrast shadows, inset shadows, soft gradients.
+
+Typography: Modern and highly readable. Inter / Geist / Manrope. Large display sizes for hero and section titles. Body at 16-18px.
+
+The site should communicate: discipline, calm, trust, energy, professionalism, physical strength, mental clarity, consistency.
+
+## Technical Constraints
+
+- Next.js App Router with TypeScript (strict)
+- SSR-first, Server Components by default
+- Tailwind CSS for styling
+- No database in v1
+- No CMS in v1
+- No authentication in v1
+- No payment integration (ever on the website)
+- Content driven by static TypeScript files in `/content/`
+- `mailto:` for contact (no server-side email sending)
+- Minimal dependencies
+
+## Business Constraints
+
+- No transactional language ("Buy Now", "Subscribe", "Checkout")
+- Pricing is always "Starting from..." with CTA "Talk to Siddharth"
+- No fabricated content (achievements, testimonials, credentials)
+- No medical claims or fitness guarantees
+- Real content must be supplied by Siddharth before production launch
+
+## Content Rules
+
+- All achievements, certificates, and testimonials must be real and verifiable
+- Placeholder content must be clearly marked as `[PLACEHOLDER]`
+- Testimonials require permission to publish name/photo
+- Anonymous testimonials use "Verified Client"
+- Social links only shown if Siddharth has an active account on that platform
+- No decorative empty social icons
+
+## Non-Goals (Version 1)
+
+- Online payments
+- User accounts / client dashboard
+- Workout tracking
+- Subscription billing
+- Database
+- CMS
+- Appointment booking
+- Automated email backend
+- AI fitness recommendations
+- Medical advice
+- Social feed
+- Blog (future route reserved)
+
+## Future Direction
+
+The architecture preserves a clean migration path:
+
+```
+Static content files
+  --> JSON / MDX
+    --> CMS API
+      --> Database + Admin dashboard
+        --> Micro-SaaS trainer platform
+```
+
+Possible future entities: Trainer, Client, Plan, Achievement, Certificate, Testimonial, Lead, Appointment, Workout, Exercise, ProgressRecord.
+
+None of these should be prematurely implemented. The initial release stays static and lightweight.

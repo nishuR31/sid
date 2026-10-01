@@ -1,0 +1,182 @@
+# .architecture — Siddharth Fit
+
+## Rendering Model
+
+Server Components are the default. Client Components are used only for:
+
+- Theme switcher (requires `useState`, `useEffect`, localStorage)
+- Pointer parallax / 3D tilt (requires pointer events)
+- Search dialog (requires client-side index and keyboard shortcuts)
+- Contact form interaction (requires `mailto:` construction)
+- Animated navigation state (mobile menu toggle)
+
+Do NOT wrap entire pages in `"use client"`.
+
+## Route Structure
+
+```
+app/
+├── layout.tsx               # Root layout (fonts, theme provider, nav, footer)
+├── page.tsx                 # Homepage
+├── not-found.tsx            # Custom 404
+├── error.tsx                # Route-level error boundary
+├── global-error.tsx         # Global error boundary
+├── sitemap.ts               # Dynamic sitemap generation
+├── robots.ts                # Robots configuration
+│
+├── about/
+│   └── page.tsx             # About Siddharth
+│
+├── achievements/
+│   └── page.tsx             # Achievements listing
+│
+├── certificates/
+│   ├── page.tsx             # Certificates listing
+│   └── [slug]/
+│       └── page.tsx         # Individual certificate
+│
+├── testimonials/
+│   └── page.tsx             # Client testimonials
+│
+├── plans/
+│   ├── page.tsx             # Plans overview
+│   └── [slug]/
+│       └── page.tsx         # Individual plan detail
+│
+├── contact/
+│   └── page.tsx             # Contact form + direct links
+│
+├── search/
+│   └── page.tsx             # Search page
+│
+└── api/
+    └── health/
+        └── route.ts         # Health check endpoint
+```
+
+## Component Architecture
+
+```
+components/
+├── layout/
+│   ├── Header.tsx           # Navigation bar
+│   ├── Footer.tsx           # Site footer
+│   └── Container.tsx        # Content width wrapper
+│
+├── navigation/
+│   ├── DesktopNav.tsx       # Full horizontal nav
+│   ├── MobileNav.tsx        # Compact menu with toggle
+│   └── NavLink.tsx          # Individual nav item
+│
+├── hero/
+│   ├── HeroSection.tsx      # Homepage hero
+│   └── HeroParallax.tsx     # Pointer parallax effect (client)
+│
+├── about/
+│   └── AboutSection.tsx     # Biography + philosophy
+│
+├── achievements/
+│   └── AchievementCard.tsx  # Single achievement
+│
+├── certificates/
+│   ├── CertificateCard.tsx  # Certificate preview card
+│   └── CertificateDetail.tsx # Full certificate view
+│
+├── testimonials/
+│   └── TestimonialCard.tsx  # Single testimonial
+│
+├── plans/
+│   ├── PlanCard.tsx         # Plan overview card
+│   └── PlanDetail.tsx       # Full plan view
+│
+├── contact/
+│   ├── ContactForm.tsx      # mailto: form (client)
+│   └── SocialLinks.tsx      # Direct contact links
+│
+├── effects/
+│   ├── ScrollReveal.tsx     # Intersection-based reveal (client)
+│   ├── TiltCard.tsx         # 3D pointer tilt (client)
+│   └── CSS3DObject.tsx      # Decorative 3D shape (client)
+│
+├── search/
+│   └── SearchDialog.tsx     # Cmd+K search (client)
+│
+├── theme/
+│   └── ThemeToggle.tsx      # Light/Dark/System switcher (client)
+│
+├── ui/
+│   ├── Button.tsx           # Primary/secondary button
+│   ├── Badge.tsx            # Category/tag badge
+│   ├── Card.tsx             # Base card surface
+│   └── SectionHeading.tsx   # Section title + subtitle
+│
+└── seo/
+    └── StructuredData.tsx   # JSON-LD script injection
+```
+
+## Data Architecture
+
+```
+content/
+├── site.ts                  # Brand metadata (name, URL, email, description)
+├── plans.ts                 # Plan[] with pricing, features, CTAs
+├── achievements.ts          # Achievement[] with year, org, category
+├── certificates.ts          # Certificate[] with issuer, credential, image
+├── testimonials.ts          # Testimonial[] with name, role, quote
+└── social.ts                # SocialLink[] with platform, URL, label
+```
+
+Content is separated from UI. Migration path:
+
+```
+Static TS files → JSON/MDX → CMS API → Database
+```
+
+No migration requires rebuilding the frontend component layer.
+
+## Type System
+
+```
+types/
+└── content.ts
+    ├── Plan
+    ├── Achievement
+    ├── Certificate
+    ├── Testimonial
+    ├── SocialLink
+    ├── TrainerProfile
+    └── SiteConfig
+```
+
+No `any`. Discriminated unions where appropriate.
+
+## Theme System
+
+Three modes: Light, Dark, System.
+
+- Preference persisted in `localStorage`
+- Initial theme: System (`prefers-color-scheme`)
+- No flash of incorrect theme (script in `<head>` before hydration)
+- CSS custom properties controlled by `data-theme` attribute on `<html>`
+
+## Image Pipeline
+
+- All raster images through `next/image`
+- AVIF preferred, WebP fallback
+- Responsive `sizes` attribute
+- `priority` only on hero image
+- Lazy loading everywhere else
+- Explicit `width` and `height` to prevent layout shift
+
+## Animation Rules
+
+Allowed properties: `opacity`, `transform` (translate, scale, rotate)
+
+Forbidden in animation: `width`, `height`, `top`, `left`, `box-shadow`
+
+Maximum three primary visual effects:
+1. Pointer parallax (hero)
+2. Scroll reveal (sections)
+3. 3D tilt (selected cards)
+
+All effects respect `prefers-reduced-motion: reduce`.

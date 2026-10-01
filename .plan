@@ -1,0 +1,175 @@
+# .plan — Siddharth Fit Implementation Plan
+
+## Phase 1: Foundation
+
+### 1.1 Project Setup
+
+- [x] Initialize Next.js with App Router, TypeScript, Tailwind CSS
+- [x] Configure `tsconfig.json` (strict mode)
+- [x] Configure ESLint
+- [x] Set up path aliases (`@/components`, `@/content`, `@/lib`)
+- [x] Configure Tailwind design tokens (colors, spacing, radius, shadows, typography)
+- [x] Add Google Fonts (Inter / Geist / Manrope)
+
+### 1.2 Content Layer
+
+- [x] Define TypeScript types: `Plan`, `Achievement`, `Certificate`, `Testimonial`, `SocialLink`, `TrainerProfile`
+- [x] Create `content/site.ts` (brand metadata, URLs, email)
+- [x] Create `content/plans.ts` (placeholder plan data)
+- [x] Create `content/achievements.ts` (placeholder achievements)
+- [x] Create `content/certificates.ts` (placeholder certificates)
+- [x] Create `content/testimonials.ts` (placeholder testimonials)
+- [x] Create `content/social.ts` (placeholder social links)
+
+### 1.3 Layout Shell
+
+- [x] Create root layout with theme provider
+- [x] Build navigation (desktop full nav, mobile compact)
+- [x] Build footer (logo, description, nav, social, email, CTA, copyright)
+- [x] Implement theme system (Light / Dark / System, persisted, no flash)
+
+---
+
+## Phase 2: Core Pages
+
+### 2.1 Homepage
+
+- [x] Hero section (eyebrow, headline, supporting text, CTAs, portrait placeholder)
+- [x] Trust indicators
+- [x] Siddharth introduction / About preview
+- [x] Training philosophy
+- [x] Services overview
+- [x] Achievements preview
+- [x] Certifications preview
+- [x] Client testimonials carousel/grid
+- [x] Plans overview
+- [x] Custom coaching section
+- [x] Contact CTA banner
+- [x] Scroll-reveal animations (opacity + translate, reduced-motion safe)
+
+### 2.2 About Page (`/about`)
+
+- [x] Portrait placeholder
+- [x] Biography
+- [x] Coaching philosophy
+- [x] Experience and specialties
+- [x] Training approach categories
+
+### 2.3 Achievements Page (`/achievements`)
+
+- [x] Achievement cards (title, year, organization, category, description)
+- [x] Filter by category if volume warrants it
+
+### 2.4 Certificates (`/certificates` and `/certificates/[slug]`)
+
+- [x] Certificate listing with cards
+- [x] Individual certificate page (preview, details, issuer, verification link)
+- [x] Optimized images via `next/image`
+
+### 2.5 Testimonials (`/testimonials`)
+
+- [x] Testimonial cards (name/anonymous, role, quote, date)
+- [x] No fabricated reviews
+
+### 2.6 Plans (`/plans` and `/plans/[slug]`)
+
+- [x] Plan cards (name, description, starting price, period, features)
+- [x] Individual plan detail page
+- [x] CTA: "Discuss This Plan" (links to contact)
+- [x] Non-transactional pricing presentation
+
+### 2.7 Contact (`/contact`)
+
+- [x] Contact form (Name, Email, Subject, Message)
+- [x] `mailto:` submission (browser opens email client)
+- [x] Fallback text if email app does not open
+- [x] Direct display: email, Instagram, WhatsApp (if supplied)
+
+### 2.8 Search (`/search`)
+
+- [x] Client-side static index (pages, plans, achievements, certificates, testimonials)
+- [x] `Ctrl+K` / `Cmd+K` trigger on desktop
+- [x] Dedicated search button on mobile
+
+---
+
+## Phase 3: Polish
+
+### 3.1 Visual Effects
+
+- [x] Pointer parallax on hero (GPU-friendly, transform-based)
+- [x] 3D tilt on selected cards (subtle, pointer-responsive)
+- [x] All effects disabled under `prefers-reduced-motion`
+- [x] CSS 3D decorative object (dumbbell / geometric shape)
+
+### 3.2 Error Handling
+
+- [x] Custom 404 page ("Looks like this set isn't here anymore")
+- [x] Route-level `error.tsx`
+- [x] Global `global-error.tsx`
+- [x] Stale-build chunk-failure recovery with reload guard
+
+### 3.3 SEO
+
+- [x] Per-route metadata (title, description, canonical, OG, Twitter)
+- [x] Structured data (Person, ProfessionalService)
+- [x] `/sitemap.xml` generation
+- [x] `/robots.txt`
+
+### 3.4 Security
+
+- [x] Security headers (CSP, X-Content-Type-Options, Referrer-Policy, Permissions-Policy)
+- [x] No secrets in source
+- [x] No stack traces in production UI
+
+### 3.5 Accessibility Audit
+
+- [x] Keyboard navigation on all interactive elements
+- [x] Visible focus indicators
+- [x] Semantic heading hierarchy (single `<h1>` per page)
+- [x] ARIA attributes on decorative elements
+- [x] Sufficient color contrast in both themes
+- [x] Screen reader testing
+
+### 3.6 Performance
+
+- [x] `next/image` on all raster images
+- [x] Responsive image sizes
+- [x] Lazy loading (except hero)
+- [x] Minimal client JavaScript
+- [x] Lighthouse review
+
+---
+
+## Phase 4: Pre-Launch
+
+### 4.1 Content Replacement
+
+- [ ] Insert Siddharth's real profile, biography, photograph
+- [ ] Insert real certificates and verification URLs
+- [ ] Insert real achievements
+- [ ] Insert real testimonials (with permission)
+- [ ] Insert real social links and email
+- [ ] Insert real plan names and general pricing
+- [ ] Remove all `[PLACEHOLDER]` markers
+
+### 4.2 Testing
+
+- [x] Chrome, Firefox, Safari, Edge
+- [x] Android Chrome, iOS Safari
+- [x] Keyboard-only navigation
+- [x] Reduced motion mode
+- [x] Dark mode
+- [x] Slow network
+- [x] Invalid routes (404)
+- [x] Chunk loading failure (stale build)
+- [x] Long content (long testimonial, long plan name)
+- [x] Very narrow (320px) and very wide (1920px) viewports
+
+### 4.3 Deployment
+
+- [ ] Configure production domain
+- [ ] Environment variables in deployment config only
+- [x] CI pipeline: typecheck, lint, build
+- [ ] Deployment smoke test
+- [ ] Final Lighthouse review

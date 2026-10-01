@@ -1,0 +1,109 @@
+# .error — Siddharth Fit Error Handling Strategy
+
+## 404 Strategy
+
+Route: `app/not-found.tsx`
+
+Messaging tone: friendly, fitness-themed.
+
+Example: "Looks like this set isn't here anymore."
+
+The 404 page provides:
+
+- Search input (helps users recover from incorrect routes)
+- Link to homepage
+- Link to plans
+- Link to contact
+
+Do NOT use a generic browser 404 or a blank page.
+
+## Route-Level Errors
+
+File: `app/error.tsx`
+
+Purpose: Catches runtime errors within specific route segments.
+
+Behavior:
+
+- Display a calm, branded error message
+- Provide a "Try Again" button (calls `reset()`)
+- Provide a "Go Home" link
+- Do NOT expose stack traces, file paths, or internal details
+- Log error details only to controlled production telemetry (future Sentry integration)
+
+## Global Error Boundary
+
+File: `app/global-error.tsx`
+
+Purpose: Last-resort boundary for catastrophic failures that escape route-level handling.
+
+Behavior:
+
+- Must render its own `<html>` and `<body>` (Next.js requirement)
+- Simple branded recovery page
+- "Something went wrong" message
+- "Reload" button
+- "Go Home" link
+- No dependency on shared layout (it may have failed)
+
+## Stale Build / Chunk Failure Recovery
+
+Problem: After a new deployment, returning users may have stale JavaScript bundles that reference chunks that no longer exist on the server. This causes `ChunkLoadError` or dynamic import failures.
+
+Recovery strategy:
+
+1. Detect chunk-loading failure (catch dynamic import errors)
+2. Check `sessionStorage` for a recovery flag (`chunk-recovery-attempted`)
+3. If flag is NOT set:
+   - Set the flag
+   - Perform one controlled `window.location.reload()`
+4. If flag IS set:
+   - Do NOT reload (prevents infinite reload loops)
+   - Show the error boundary UI with "Try Again" and "Go Home"
+5. Clear the flag on successful page load
+
+Guard: NEVER continuously reload. One attempt maximum per session.
+
+## Error UI Language
+
+Use calm, human language. Avoid technical jargon.
+
+Good:
+
+- "Something went wrong. Let's get you back on track."
+- "This page couldn't load. Try refreshing."
+- "Looks like this set isn't here anymore."
+
+Bad:
+
+- "Error 500: Internal Server Error"
+- "ChunkLoadError: Loading chunk 47 failed"
+- "Unhandled Runtime Error"
+
+## Error Logging (Future)
+
+When production telemetry is added (Sentry or equivalent):
+
+Capture:
+
+- Runtime errors with component stack
+- Chunk loading failures
+- Route transition failures
+- Critical client exceptions
+
+Do NOT send:
+
+- Passwords or credentials
+- Private messages from contact form
+- Unnecessary PII
+- Full request bodies
+
+## Error States in Components
+
+Components that load data should handle:
+
+- Loading state (skeleton or spinner)
+- Empty state (no results / no content)
+- Error state (failed to load, retry option)
+
+Do not leave components in an undefined visual state when data is missing.
